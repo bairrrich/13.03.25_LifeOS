@@ -7,6 +7,7 @@ import { cn } from '@/shared/lib/cn';
 import { Button } from '@/ui/components/button';
 import { ThemeSwitcher } from '@/ui/components/theme-switcher';
 import { LanguageSwitcher } from '@/ui/components/language-switcher';
+import { useTranslation } from '@/shared/lib/use-translation';
 import {
   LayoutDashboard,
   Wallet,
@@ -20,20 +21,30 @@ import {
   Settings,
 } from 'lucide-react';
 
-const navigation = [
-  { name: 'nav.dashboard', href: '/', icon: LayoutDashboard },
-  { name: 'nav.finance', href: '/finance', icon: Wallet },
-  { name: 'nav.nutrition', href: '/nutrition', icon: Utensils },
-  { name: 'nav.workouts', href: '/workouts', icon: Dumbbell },
-  { name: 'nav.health', href: '/health', icon: Heart },
-  { name: 'nav.habits', href: '/habits', icon: CheckCircle2 },
-  { name: 'nav.goals', href: '/goals', icon: Target },
-  { name: 'nav.mind', href: '/mind', icon: Brain },
-  { name: 'nav.beauty', href: '/beauty', icon: Sparkles },
-];
-
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const { t, ready } = useTranslation();
+
+  // Навигация определяется внутри компонента для использования t()
+  const navigation = [
+    { name: t('nav.dashboard'), href: '/', icon: LayoutDashboard },
+    { name: t('nav.finance'), href: '/finance', icon: Wallet },
+    { name: t('nav.nutrition'), href: '/nutrition', icon: Utensils },
+    { name: t('nav.workouts'), href: '/workouts', icon: Dumbbell },
+    { name: t('nav.health'), href: '/health', icon: Heart },
+    { name: t('nav.habits'), href: '/habits', icon: CheckCircle2 },
+    { name: t('nav.goals'), href: '/goals', icon: Target },
+    { name: t('nav.mind'), href: '/mind', icon: Brain },
+    { name: t('nav.beauty'), href: '/beauty', icon: Sparkles },
+  ];
+
+  if (!ready) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-muted-foreground">{t('common.loading')}</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
@@ -52,7 +63,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           {navigation.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Link key={item.name} href={item.href}>
+              <Link key={item.href} href={item.href}>
                 <Button
                   variant={isActive ? 'secondary' : 'ghost'}
                   className={cn(
@@ -71,7 +82,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <Link href="/settings">
             <Button variant="ghost" className="w-full justify-start gap-2">
               <Settings className="h-4 w-4" />
-              nav.settings
+              {t('nav.settings')}
             </Button>
           </Link>
         </div>
@@ -99,7 +110,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         {navigation.slice(0, 5).map((item) => {
           const isActive = pathname === item.href;
           return (
-            <Link key={item.name} href={item.href} className="flex-1">
+            <Link key={item.href} href={item.href} className="flex-1">
               <Button
                 variant="ghost"
                 size="icon"
