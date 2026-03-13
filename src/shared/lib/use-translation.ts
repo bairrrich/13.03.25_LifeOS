@@ -8,6 +8,7 @@ export type Locale = 'ru' | 'en';
 export function useTranslation(ns: string = 'common') {
   const [ready, setReady] = useState(false);
   const [currentLocale, setCurrentLocale] = useState<Locale>(defaultLocale);
+  const [, forceUpdate] = useState(0);
 
   useEffect(() => {
     // Инициализация при монтировании
@@ -21,6 +22,18 @@ export function useTranslation(ns: string = 'common') {
     };
 
     init();
+
+    // Подписка на изменения языка
+    const handleLanguageChanged = () => {
+      setCurrentLocale(i18next.language as Locale);
+      forceUpdate(n => n + 1); // Принудительная перерисовка
+    };
+
+    i18next.on('languageChanged', handleLanguageChanged);
+
+    return () => {
+      i18next.off('languageChanged', handleLanguageChanged);
+    };
   }, []);
 
   const t = useCallback(
@@ -50,6 +63,8 @@ export function useTranslation(ns: string = 'common') {
     if (typeof window !== 'undefined') {
       localStorage.setItem('lifeos-locale', locale);
     }
+    // Принудительная перерисовка
+    forceUpdate(n => n + 1);
   }, []);
 
   return {
