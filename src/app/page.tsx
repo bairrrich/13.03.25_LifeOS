@@ -71,14 +71,14 @@ export default function DashboardPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Добро пожаловать в LifeOS</CardTitle>
+            <CardTitle>{t('dashboard.welcome')}</CardTitle>
             <CardDescription>
-              Начните добавлять данные в модулях: финансы, питание, тренировки, привычки
+              {t('dashboard.subtitle')}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              Это приложение поможет вам отслеживать все аспекты вашей жизни в одном месте.
+              {t('dashboard.welcome')}
             </p>
           </CardContent>
         </Card>

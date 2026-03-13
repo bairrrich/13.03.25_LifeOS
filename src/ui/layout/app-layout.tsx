@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/ui/components/button';
 import { ThemeSwitcher } from '@/ui/components/theme-switcher';
+import { LanguageSwitcher } from '@/ui/components/language-switcher';
 import {
   LayoutDashboard,
   Wallet,
@@ -42,7 +43,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <Link href="/" className="text-lg font-semibold" style={{ color: 'var(--foreground)' }}>
             LifeOS
           </Link>
-          <ThemeSwitcher />
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </div>
         </div>
         <nav className="space-y-1 p-4">
           {navigation.map((item) => {
@@ -80,7 +84,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <Link href="/" className="text-lg font-semibold" style={{ color: 'var(--foreground)' }}>
             LifeOS
           </Link>
-          <ThemeSwitcher />
+          <div className="flex items-center gap-1">
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </div>
         </header>
 
         {/* Контент страницы */}
