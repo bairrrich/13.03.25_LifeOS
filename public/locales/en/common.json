@@ -1,0 +1,61 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "close": "Close",
+    "confirm": "Confirm",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "noData": "No data"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "finance": "Finance",
+    "nutrition": "Nutrition",
+    "workouts": "Workouts",
+    "health": "Health",
+    "habits": "Habits",
+    "goals": "Goals",
+    "mind": "Mind",
+    "beauty": "Beauty",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "today": "Today",
+    "expenses": "Expenses",
+    "calories": "Calories",
+    "workout": "Workout",
+    "sleep": "Sleep",
+    "reading": "Reading"
+  },
+  "finance": {
+    "accounts": "Accounts",
+    "transactions": "Transactions",
+    "budgets": "Budgets",
+    "categories": "Categories",
+    "income": "Income",
+    "expense": "Expense",
+    "transfer": "Transfer",
+    "balance": "Balance"
+  },
+  "habits": {
+    "streak": "Streak",
+    "completed": "Completed",
+    "missed": "Missed",
+    "today": "Today"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "highContrast": "High Contrast"
+  }
+}

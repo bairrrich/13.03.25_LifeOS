@@ -1,0 +1,61 @@
+{
+  "common": {
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "add": "Добавить",
+    "close": "Закрыть",
+    "confirm": "Подтвердить",
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "success": "Успешно",
+    "search": "Поиск",
+    "filter": "Фильтр",
+    "sort": "Сортировка",
+    "noData": "Нет данных"
+  },
+  "nav": {
+    "dashboard": "Главная",
+    "finance": "Финансы",
+    "nutrition": "Питание",
+    "workouts": "Тренировки",
+    "health": "Здоровье",
+    "habits": "Привычки",
+    "goals": "Цели",
+    "mind": "Разум",
+    "beauty": "Красота",
+    "settings": "Настройки"
+  },
+  "dashboard": {
+    "title": "Главная панель",
+    "today": "Сегодня",
+    "expenses": "Расходы",
+    "calories": "Калории",
+    "workout": "Тренировка",
+    "sleep": "Сон",
+    "reading": "Чтение"
+  },
+  "finance": {
+    "accounts": "Счета",
+    "transactions": "Транзакции",
+    "budgets": "Бюджеты",
+    "categories": "Категории",
+    "income": "Доходы",
+    "expense": "Расходы",
+    "transfer": "Перевод",
+    "balance": "Баланс"
+  },
+  "habits": {
+    "streak": "Серия",
+    "completed": "Выполнено",
+    "missed": "Пропущено",
+    "today": "Сегодня"
+  },
+  "theme": {
+    "light": "Светлая",
+    "dark": "Тёмная",
+    "system": "Системная",
+    "highContrast": "Контрастная"
+  }
+}

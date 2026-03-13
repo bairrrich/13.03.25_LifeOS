@@ -1,0 +1,18 @@
+export {
+  addToSyncQueue,
+  getPendingChanges,
+  markAsSynced,
+  markAsFailed,
+  incrementRetryCount,
+  cleanupSyncedRecords,
+  pushChanges,
+  pullChanges,
+  mergeEntity,
+  resolveConflict,
+  hasPendingChanges,
+  getSyncQueueStats,
+  runFullSync,
+  type SyncOperation,
+  type SyncConflict,
+  type SyncResult,
+} from './sync-engine';
