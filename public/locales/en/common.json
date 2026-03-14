@@ -37,7 +37,13 @@
     "done": "Done",
     "retry": "Retry",
     "tryAgain": "Try Again",
-    "more": "More"
+    "more": "More",
+    "equal": "Equal",
+    "notEqual": "Not Equal",
+    "greaterThan": "Greater Than",
+    "lessThan": "Less Than",
+    "contains": "Contains",
+    "exists": "Exists"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -49,6 +55,7 @@
     "goals": "Goals",
     "mind": "Mind",
     "beauty": "Beauty",
+    "automation": "Automation",
     "settings": "Settings"
   },
   "dashboard": {
@@ -384,5 +391,109 @@
     "percent": "%",
     "km": "km",
     "steps": "steps"
+  },
+  "automation": {
+    "title": "Automation",
+    "description": "Create rules to automate actions in LifeOS",
+    "createRule": "Create Rule",
+    "editRule": "Edit Rule",
+    "deleteRule": "Delete Rule",
+    "runRule": "Run",
+    "rules": "Rules",
+    "logs": "Logs",
+    "noRules": "No rules found",
+    "noRulesDescription": "Create your first automation rule",
+    "noLogs": "No logs",
+    "noLogsDescription": "Rule execution logs will appear here",
+    "searchRules": "Search rules...",
+    "filter": {
+      "all": "All",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "stats": {
+      "totalRules": "Total Rules",
+      "activeRules": "Active",
+      "inactiveRules": "Inactive",
+      "totalTriggers": "Total Triggers",
+      "totalErrors": "Errors"
+    },
+    "form": {
+      "basicInfo": "Basic Info",
+      "name": "Rule Name",
+      "namePlaceholder": "e.g., Large expense notification",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe what this rule does...",
+      "enabled": "Enabled",
+      "trigger": "Trigger",
+      "triggerType": "Trigger Type",
+      "event": "Event",
+      "selectEvent": "Select an event",
+      "schedule": "Schedule",
+      "cronExpression": "Cron Expression",
+      "cronPreset": "Preset",
+      "cronFormat": "Format: minute hour day month weekday",
+      "cronPresets": {
+        "everyMinute": "Every minute",
+        "every5Minutes": "Every 5 minutes",
+        "everyHour": "Every hour",
+        "everyDayMidnight": "Every day at midnight",
+        "everyWeekMonday": "Every Monday at midnight",
+        "everyMonth1st": "1st of every month"
+      },
+      "conditions": "Conditions",
+      "addCondition": "Add",
+      "noConditions": "No conditions set. Rule will trigger on every event.",
+      "field": "Field",
+      "value": "Value",
+      "actions": "Actions",
+      "addAction": "Add",
+      "noActions": "No actions set. Add at least one action.",
+      "advanced": "Advanced",
+      "priority": "Priority (0-100)",
+      "runOnce": "Run only once",
+      "cooldown": "Cooldown between runs (ms)",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "actions": {
+      "createEntity": "Create Entity",
+      "updateEntity": "Update Entity",
+      "deleteEntity": "Delete Entity",
+      "sendNotification": "Send Notification"
+    },
+    "events": {
+      "transactionCreated": "Transaction Created",
+      "transactionUpdated": "Transaction Updated",
+      "habitCompleted": "Habit Completed",
+      "workoutCompleted": "Workout Completed",
+      "goalCompleted": "Goal Completed",
+      "budgetCreated": "Budget Created"
+    },
+    "logsTable": {
+      "status": "Status",
+      "rule": "Rule",
+      "trigger": "Trigger",
+      "startTime": "Start Time",
+      "duration": "Duration",
+      "actions": "Actions",
+      "details": "Details",
+      "pending": "Pending",
+      "running": "Running",
+      "completed": "Completed",
+      "failed": "Failed",
+      "skipped": "Skipped",
+      "manual": "Manual",
+      "schedule": "Schedule"
+    },
+    "confirmDelete": "Are you sure you want to delete this rule?",
+    "errorCreate": "Failed to create rule",
+    "errorUpdate": "Failed to update rule",
+    "errorDelete": "Failed to delete rule",
+    "errorLoad": "Failed to load rules"
   }
 }

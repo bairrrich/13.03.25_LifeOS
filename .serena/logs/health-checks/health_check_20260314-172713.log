@@ -1,0 +1,173 @@
+INFO  2026-03-14 17:27:13,859 serena.cli:health_check:822 - Starting health check for project: /mnt/c/CODE/13.03.26_LifeOS
+INFO  2026-03-14 17:27:13,859 serena.cli:health_check:826 - Creating SerenaAgent with disabled dashboard...
+INFO  2026-03-14 17:27:13,885 serena.agent:__init__:310 - Will record tool usage statistics with token count estimator: CHAR_COUNT.
+INFO  2026-03-14 17:27:13,891 serena.util.file_system:_load_gitignore_files:152 - Processing .gitignore file: /mnt/c/CODE/13.03.26_LifeOS/.serena/.gitignore
+INFO  2026-03-14 17:27:13,933 serena.util.file_system:_load_gitignore_files:152 - Processing .gitignore file: /mnt/c/CODE/13.03.26_LifeOS/.husky/_/.gitignore
+INFO  2026-03-14 17:27:14,487 serena.util.file_system:stop:367 - Loading of .gitignore files completed in 0.637 seconds
+INFO  2026-03-14 17:27:14,488 serena.project:stop:367 - Gathering ignore spec for project 13.03.26_LifeOS completed in 0.638 seconds
+INFO  2026-03-14 17:27:23,895 serena.agent:__init__:314 - Starting Serena server (version=0.1.4-c6299189-dirty, process id=579, parent process id=445; language backend=LSP)
+INFO  2026-03-14 17:27:23,895 serena.agent:__init__:318 - Configuration file: /home/brain/.serena/serena_config.yml
+INFO  2026-03-14 17:27:23,896 serena.agent:__init__:319 - Available projects: 13.03.26_LifeOS
+INFO  2026-03-14 17:27:23,896 serena.agent:__init__:320 - Loaded tools (43): read_file, create_text_file, list_dir, find_file, replace_content, delete_lines, replace_lines, insert_at_line, search_for_pattern, restart_language_server, get_symbols_overview, find_symbol, find_referencing_symbols, replace_symbol_body, insert_after_symbol, insert_before_symbol, rename_symbol, write_memory, read_memory, list_memories, delete_memory, rename_memory, edit_memory, execute_shell_command, open_dashboard, activate_project, remove_project, switch_modes, get_current_config, check_onboarding_performed, onboarding, think_about_collected_information, think_about_task_adherence, think_about_whether_you_are_done, summarize_changes, prepare_for_new_conversation, initial_instructions, jet_brains_find_symbol, jet_brains_find_referencing_symbols, jet_brains_get_symbols_overview, jet_brains_type_hierarchy, list_queryable_projects, query_project
+INFO  2026-03-14 17:27:23,896 serena.agent:__init__:332 - Using language backend from global configuration: LSP
+INFO  2026-03-14 17:27:23,912 serena.config.serena_config:start:360 - Loading project instance for RegisteredProject[project_root=/mnt/c/CODE/13.03.26_LifeOS, project_config=ProjectConfig[project_name=13.03.26_LifeOS]] starting ...
+INFO  2026-03-14 17:27:23,913 serena.project:__init__:247 - Serena project data folder: /mnt/c/CODE/13.03.26_LifeOS/.serena
+INFO  2026-03-14 17:27:23,915 serena.project:start:360 - Gathering ignore spec for project 13.03.26_LifeOS starting ...
+INFO  2026-03-14 17:27:23,915 serena.config.serena_config:stop:367 - Loading project instance for RegisteredProject[project_root=/mnt/c/CODE/13.03.26_LifeOS, project_config=ProjectConfig[project_name=13.03.26_LifeOS]] completed in 0.003 seconds
+INFO  2026-03-14 17:27:23,916 serena.util.file_system:start:360 - Loading of .gitignore files starting ...
+INFO  2026-03-14 17:27:23,916 serena.agent:activate_project_from_path_or_name:733 - Found registered project '13.03.26_LifeOS' at path /mnt/c/CODE/13.03.26_LifeOS
+INFO  2026-03-14 17:27:23,917 serena.agent:_activate_project:690 - Activating 13.03.26_LifeOS at /mnt/c/CODE/13.03.26_LifeOS
+INFO  2026-03-14 17:27:23,917 serena.task_executor:issue_task:192 - Scheduling Task-1:init_language_server_manager
+INFO  2026-03-14 17:27:23,917 serena.agent:get_mode_names:215 - Active modes: ['editing', 'interactive']
+INFO  2026-03-14 17:27:23,917 serena.util.file_system:_load_gitignore_files:152 - Processing .gitignore file: /mnt/c/CODE/13.03.26_LifeOS/.gitignore
+INFO  2026-03-14 17:27:23,921 serena.agent:apply:155 - SerenaAgentContext[name='desktop-app'] included 1 tools: switch_modes
+INFO  2026-03-14 17:27:23,921 serena.agent:_create_base_toolset:448 - Number of exposed tools: 27
+INFO  2026-03-14 17:27:23,922 serena.agent:__init__:359 - Number of exposed tools: 27
+INFO  2026-03-14 17:27:23,923 serena.agent:_update_active_tools:644 - Active tools (27): activate_project, check_onboarding_performed, create_text_file, delete_memory, edit_memory, execute_shell_command, find_file, find_referencing_symbols, find_symbol, get_current_config, get_symbols_overview, initial_instructions, insert_after_symbol, insert_before_symbol, list_dir, list_memories, onboarding, prepare_for_new_conversation, read_file, read_memory, rename_memory, rename_symbol, replace_content, replace_symbol_body, search_for_pattern, switch_modes, write_memory
+INFO  2026-03-14 17:27:23,924 serena.cli:health_check:829 - SerenaAgent created successfully
+INFO  2026-03-14 17:27:23,924 serena.cli:health_check:832 - Searching for analyzable files...
+INFO  2026-03-14 17:27:23,941 serena.util.file_system:_load_gitignore_files:152 - Processing .gitignore file: /mnt/c/CODE/13.03.26_LifeOS/.serena/.gitignore
+INFO  2026-03-14 17:27:23,979 serena.util.file_system:_load_gitignore_files:152 - Processing .gitignore file: /mnt/c/CODE/13.03.26_LifeOS/.husky/_/.gitignore
+INFO  2026-03-14 17:27:23,997 serena.task_executor:_process_task_queue:123 - Starting execution of Task-1:init_language_server_manager
+INFO  2026-03-14 17:27:23,997 serena.task_executor:start:360 - Task-1:init_language_server_manager starting ...
+INFO  2026-03-14 17:27:23,998 serena.agent:start:360 - Language server initialization starting ...
+INFO  2026-03-14 17:27:23,998 serena.project:create_language_server_manager:618 - Creating language server manager for /mnt/c/CODE/13.03.26_LifeOS
+INFO  2026-03-14 17:27:23,998 serena.project:_ignored_patterns:390 - Waiting for ignored patterns to become available ...
+INFO  2026-03-14 17:27:24,449 serena.util.file_system:stop:367 - Loading of .gitignore files completed in 0.533 seconds
+INFO  2026-03-14 17:27:24,450 serena.project:stop:367 - Gathering ignore spec for project 13.03.26_LifeOS completed in 0.534 seconds
+INFO  2026-03-14 17:27:24,450 serena.project:_ignored_patterns:392 - Ignore patterns are now available for project; proceeding
+INFO  2026-03-14 17:27:24,450 sensai.util.logging:start:360 - Language server startup (language=typescript) starting ...
+INFO  2026-03-14 17:27:24,451 sensai.util.logging:start:360 - Language server startup (language=powershell) starting ...
+INFO  2026-03-14 17:27:24,451 serena.ls_manager:create_language_server:48 - Creating language server instance for /mnt/c/CODE/13.03.26_LifeOS, language=typescript.
+INFO  2026-03-14 17:27:24,451 serena.ls_manager:create_language_server:48 - Creating language server instance for /mnt/c/CODE/13.03.26_LifeOS, language=powershell.
+ERROR 2026-03-14 17:27:24,554 sensai.util.logging:__exit__:373 - Language server startup (language=powershell) failed after 0.103 seconds
+ERROR 2026-03-14 17:27:24,554 serena.ls_manager:_start_language_server:113 - Error starting language server for language powershell: PowerShell Core (pwsh) is not installed or not in PATH. Please install PowerShell 7+ from https://github.com/PowerShell/PowerShell
+Traceback (most recent call last):
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/ls_manager.py", line 108, in _start_language_server
+    self.language_server = factory.create_language_server(self.language)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/ls_manager.py", line 49, in create_language_server
+    return SolidLanguageServer.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/ls.py", line 434, in create
+    ls = ls_class(config, repository_root_path, solidlsp_settings)  # type: ignore
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/language_servers/powershell_language_server.py", line 164, in __init__
+    pwsh_path, pses_path, bundled_modules_path = self._setup_runtime_dependency(solidlsp_settings)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/language_servers/powershell_language_server.py", line 147, in _setup_runtime_dependency
+    raise RuntimeError(
+RuntimeError: PowerShell Core (pwsh) is not installed or not in PATH. Please install PowerShell 7+ from https://github.com/PowerShell/PowerShell
+ERROR 2026-03-14 17:27:24,632 sensai.util.logging:__exit__:373 - Language server startup (language=typescript) failed after 0.181 seconds
+ERROR 2026-03-14 17:27:24,632 serena.ls_manager:_start_language_server:113 - Error starting language server for language typescript: node is not installed or isn't in PATH. Please install NodeJS and try again.
+Traceback (most recent call last):
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/ls_manager.py", line 108, in _start_language_server
+    self.language_server = factory.create_language_server(self.language)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/ls_manager.py", line 49, in create_language_server
+    return SolidLanguageServer.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/ls.py", line 434, in create
+    ls = ls_class(config, repository_root_path, solidlsp_settings)  # type: ignore
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/language_servers/typescript_language_server.py", line 74, in __init__
+    super().__init__(
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/ls.py", line 508, in __init__
+    process_launch_info = self._create_process_launch_info()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/ls.py", line 547, in _create_process_launch_info
+    cmd = self._dependency_provider.create_launch_command()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/ls.py", line 319, in create_launch_command
+    core_path = self._get_or_install_core_dependency()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/solidlsp/language_servers/typescript_language_server.py", line 145, in _get_or_install_core_dependency
+    assert is_node_installed, "node is not installed or isn't in PATH. Please install NodeJS and try again."
+           ^^^^^^^^^^^^^^^^^
+AssertionError: node is not installed or isn't in PATH. Please install NodeJS and try again.
+ERROR 2026-03-14 17:27:24,633 serena.agent:__exit__:373 - Language server initialization failed after 0.636 seconds
+ERROR 2026-03-14 17:27:24,633 serena.task_executor:__exit__:373 - Task-1:init_language_server_manager failed after 0.636 seconds
+ERROR 2026-03-14 17:27:24,634 serena.task_executor:run_task:62 - Error during execution of Task-1:init_language_server_manager: Failed to start 2 language server(s):
+typescript: node is not installed or isn't in PATH. Please install NodeJS and try again.
+powershell: PowerShell Core (pwsh) is not installed or not in PATH. Please install PowerShell 7+ from https://github.com/PowerShell/PowerShell
+Traceback (most recent call last):
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/task_executor.py", line 57, in run_task
+    result = self._function()
+             ^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/agent.py", line 713, in init_language_server_manager
+    self.reset_language_server_manager()
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/agent.py", line 813, in reset_language_server_manager
+    self.get_active_project_or_raise().create_language_server_manager()
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/project.py", line 629, in create_language_server_manager
+    self.language_server_manager = LanguageServerManager.from_languages(self.project_config.languages, factory)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/ls_manager.py", line 142, in from_languages
+    raise LanguageServerManagerInitialisationError(f"Failed to start {len(exceptions)} language server(s):\n{failure_messages}")
+serena.ls_manager.LanguageServerManagerInitialisationError: Failed to start 2 language server(s):
+typescript: node is not installed or isn't in PATH. Please install NodeJS and try again.
+powershell: PowerShell Core (pwsh) is not installed or not in PATH. Please install PowerShell 7+ from https://github.com/PowerShell/PowerShell
+INFO  2026-03-14 17:27:25,716 serena.cli:health_check:841 - Found analyzable file: commitlint.config.js
+INFO  2026-03-14 17:27:25,716 serena.cli:health_check:859 - Testing GetSymbolsOverviewTool on file: commitlint.config.js
+INFO  2026-03-14 17:27:25,717 serena.task_executor:issue_task:192 - Scheduling Task-2:<lambda>
+INFO  2026-03-14 17:27:25,737 serena.task_executor:_process_task_queue:123 - Starting execution of Task-2:<lambda>
+INFO  2026-03-14 17:27:25,737 serena.task_executor:start:360 - Task-2:<lambda> starting ...
+ERROR 2026-03-14 17:27:25,738 serena.task_executor:__exit__:373 - Task-2:<lambda> failed after 0.000 seconds
+ERROR 2026-03-14 17:27:25,738 serena.task_executor:run_task:62 - Error during execution of Task-2:<lambda>: 'Project' object has no attribute '_lsp_init_error'
+Traceback (most recent call last):
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/task_executor.py", line 57, in run_task
+    result = self._function()
+             ^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/cli.py", line 860, in <lambda>
+    overview_data = agent.execute_task(lambda: overview_tool.get_symbol_overview(target_file))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/tools/symbol_tools.py", line 62, in get_symbol_overview
+    symbol_retriever = self.create_language_server_symbol_retriever()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/tools/tools_base.py", line 54, in create_language_server_symbol_retriever
+    return LanguageServerSymbolRetriever(self.project)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/symbol.py", line 540, in __init__
+    self._ls_manager: LanguageServerManager = project.get_language_server_manager_or_raise()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/project.py", line 639, in get_language_server_manager_or_raise
+    msg.with_text(str(self._lsp_init_error))
+                      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Project' object has no attribute '_lsp_init_error'
+ERROR 2026-03-14 17:27:25,743 serena.cli:health_check:934 - Health check failed with exception: 'Project' object has no attribute '_lsp_init_error'
+Traceback (most recent call last):
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/cli.py", line 860, in health_check
+    overview_data = agent.execute_task(lambda: overview_tool.get_symbol_overview(target_file))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/agent.py", line 681, in execute_task
+    return self._task_executor.execute_task(task, name=name, logged=logged, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/task_executor.py", line 209, in execute_task
+    return task_obj.result()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/task_executor.py", line 85, in result
+    return self.future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/task_executor.py", line 57, in run_task
+    result = self._function()
+             ^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/cli.py", line 860, in <lambda>
+    overview_data = agent.execute_task(lambda: overview_tool.get_symbol_overview(target_file))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/tools/symbol_tools.py", line 62, in get_symbol_overview
+    symbol_retriever = self.create_language_server_symbol_retriever()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/tools/tools_base.py", line 54, in create_language_server_symbol_retriever
+    return LanguageServerSymbolRetriever(self.project)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/symbol.py", line 540, in __init__
+    self._ls_manager: LanguageServerManager = project.get_language_server_manager_or_raise()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brain/.local/share/uv/tools/serena-agent/lib/python3.12/site-packages/serena/project.py", line 639, in get_language_server_manager_or_raise
+    msg.with_text(str(self._lsp_init_error))
+                      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Project' object has no attribute '_lsp_init_error'

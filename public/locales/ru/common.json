@@ -37,7 +37,13 @@
     "done": "Готово",
     "retry": "Повторить",
     "tryAgain": "Попробовать снова",
-    "more": "Ещё"
+    "more": "Ещё",
+    "equal": "Равно",
+    "notEqual": "Не равно",
+    "greaterThan": "Больше",
+    "lessThan": "Меньше",
+    "contains": "Содержит",
+    "exists": "Существует"
   },
   "nav": {
     "dashboard": "Главная",
@@ -49,6 +55,7 @@
     "goals": "Цели",
     "mind": "Разум",
     "beauty": "Красота",
+    "automation": "Автоматизация",
     "settings": "Настройки"
   },
   "dashboard": {
@@ -383,5 +390,109 @@
     "percent": "%",
     "km": "км",
     "steps": "шагов"
+  },
+  "automation": {
+    "title": "Автоматизация",
+    "description": "Создавайте правила для автоматизации действий в LifeOS",
+    "createRule": "Создать правило",
+    "editRule": "Редактировать правило",
+    "deleteRule": "Удалить правило",
+    "runRule": "Запустить",
+    "rules": "Правила",
+    "logs": "Логи",
+    "noRules": "Правила не найдены",
+    "noRulesDescription": "Создайте первое правило автоматизации",
+    "noLogs": "Нет логов",
+    "noLogsDescription": "Логи выполнения правил появятся здесь",
+    "searchRules": "Поиск правил...",
+    "filter": {
+      "all": "Все",
+      "active": "Активные",
+      "inactive": "Неактивные"
+    },
+    "status": {
+      "active": "Активно",
+      "inactive": "Неактивно"
+    },
+    "stats": {
+      "totalRules": "Всего правил",
+      "activeRules": "Активных",
+      "inactiveRules": "Неактивных",
+      "totalTriggers": "Всего запусков",
+      "totalErrors": "Ошибок"
+    },
+    "form": {
+      "basicInfo": "Основная информация",
+      "name": "Название правила",
+      "namePlaceholder": "Например: Уведомление о крупной трате",
+      "description": "Описание",
+      "descriptionPlaceholder": "Опишите, что делает это правило...",
+      "enabled": "Включено",
+      "trigger": "Триггер",
+      "triggerType": "Тип триггера",
+      "event": "Событие",
+      "selectEvent": "Выберите событие",
+      "schedule": "Расписание",
+      "cronExpression": "Cron-выражение",
+      "cronPreset": "Пресет",
+      "cronFormat": "Формат: минута час день месяц день_недели",
+      "cronPresets": {
+        "everyMinute": "Каждую минуту",
+        "every5Minutes": "Каждые 5 минут",
+        "everyHour": "Каждый час",
+        "everyDayMidnight": "Каждый день в полночь",
+        "everyWeekMonday": "Каждую неделю в понедельник",
+        "everyMonth1st": "Каждый месяц 1 числа"
+      },
+      "conditions": "Условия",
+      "addCondition": "Добавить",
+      "noConditions": "Условия не заданы. Правило сработает всегда при наступлении триггера.",
+      "field": "Поле",
+      "value": "Значение",
+      "actions": "Действия",
+      "addAction": "Добавить",
+      "noActions": "Действия не заданы. Добавьте хотя бы одно действие.",
+      "advanced": "Дополнительно",
+      "priority": "Приоритет (0-100)",
+      "runOnce": "Выполнить только один раз",
+      "cooldown": "Задержка между запусками (мс)",
+      "save": "Сохранить",
+      "cancel": "Отмена"
+    },
+    "actions": {
+      "createEntity": "Создать сущность",
+      "updateEntity": "Обновить сущность",
+      "deleteEntity": "Удалить сущность",
+      "sendNotification": "Уведомление"
+    },
+    "events": {
+      "transactionCreated": "Транзакция создана",
+      "transactionUpdated": "Транзакция обновлена",
+      "habitCompleted": "Привычка выполнена",
+      "workoutCompleted": "Тренировка завершена",
+      "goalCompleted": "Цель достигнута",
+      "budgetCreated": "Бюджет создан"
+    },
+    "logsTable": {
+      "status": "Статус",
+      "rule": "Правило",
+      "trigger": "Триггер",
+      "startTime": "Время начала",
+      "duration": "Длительность",
+      "actions": "Действия",
+      "details": "Детали",
+      "pending": "Ожидание",
+      "running": "Выполняется",
+      "completed": "Завершено",
+      "failed": "Ошибка",
+      "skipped": "Пропущено",
+      "manual": "Ручной",
+      "schedule": "Расписание"
+    },
+    "confirmDelete": "Вы уверены, что хотите удалить это правило?",
+    "errorCreate": "Не удалось создать правило",
+    "errorUpdate": "Не удалось обновить правило",
+    "errorDelete": "Не удалось удалить правило",
+    "errorLoad": "Не удалось загрузить правила"
   }
 }

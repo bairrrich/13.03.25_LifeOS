@@ -4,6 +4,7 @@
 import type { Table } from 'dexie';
 import type { BaseEntity } from '@/shared/types';
 import type { EntityConfig } from '@/core/entity';
+import type { AutomationRule, AutomationLog } from '@/core/automation/types';
 
 /**
  * Интерфейс для всех таблиц базы данных
@@ -295,6 +296,11 @@ export interface LifeOSDB {
     completed: boolean;
     notes?: string;
   }>;
+
+  // Automation tables
+  automation_rules: Table<AutomationRule>;
+
+  automation_logs: Table<AutomationLog>;
 
   // System tables
   sync_queue: Table<SyncQueueItem>;

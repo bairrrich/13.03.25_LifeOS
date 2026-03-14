@@ -6,6 +6,7 @@
 import Dexie, { type Table } from 'dexie';
 import type { LifeOSDB, SyncQueueItem, Device, Setting } from './types';
 import type { BaseEntity } from '@/shared/types';
+import type { AutomationRule, AutomationLog } from '@/core/automation/types';
 
 /**
  * Основной класс базы данных
@@ -298,6 +299,11 @@ class LifeOSDatabase extends Dexie implements LifeOSDB {
     notes?: string;
   }>;
 
+  // Automation tables
+  automation_rules!: Table<AutomationRule>;
+
+  automation_logs!: Table<AutomationLog>;
+
   // System tables
   sync_queue!: Table<SyncQueueItem>;
   devices!: Table<Device>;
@@ -355,6 +361,10 @@ class LifeOSDatabase extends Dexie implements LifeOSDB {
       beauty_routines: 'id,user_id,type,sync_status,deleted_at',
       routine_steps: 'id,user_id,routine_id,step_order,sync_status,deleted_at',
       beauty_logs: 'id,user_id,routine_id,date,sync_status,deleted_at',
+
+      // Automation
+      automation_rules: 'id,user_id,enabled,trigger_type,priority,sync_status,deleted_at',
+      automation_logs: 'id,user_id,rule_id,status,started_at,sync_status,deleted_at',
 
       // System
       sync_queue: '++id,entity_type,entity_id,status,created_at',

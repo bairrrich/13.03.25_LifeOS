@@ -29,16 +29,16 @@
             ]
         },
         "serena": {
+            "type": "stdio",
             "command": "uvx",
             "args": [
                 "--from",
                 "git+https://github.com/oraios/serena",
                 "serena",
-                "start-mcp-server"
-            ],
-            "env": {
-                "SERENA_PROJECT_ROOT": "${workspaceFolder}"
-            }
+                "start-mcp-server",
+                "--context",
+                "terminal-client"
+            ]
         }
     }
 }
