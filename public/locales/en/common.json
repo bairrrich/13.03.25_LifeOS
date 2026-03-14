@@ -36,7 +36,8 @@
     "clear": "Clear",
     "done": "Done",
     "retry": "Retry",
-    "tryAgain": "Try Again"
+    "tryAgain": "Try Again",
+    "more": "More"
   },
   "nav": {
     "dashboard": "Dashboard",

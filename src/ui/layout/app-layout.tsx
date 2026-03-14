@@ -6,6 +6,12 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/ui/components/button';
 import { CommandPalette } from '@/ui/components/command-palette';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/ui/components/dropdown-menu';
 import { useTranslation } from '@/shared/lib/use-translation';
 import {
   LayoutDashboard,
@@ -18,6 +24,7 @@ import {
   Brain,
   Sparkles,
   Settings,
+  Check,
 } from 'lucide-react';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
@@ -45,6 +52,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       </div>
     );
   }
+
+  // Разделяем навигацию на основную (4) и дополнительную
+  const mainNavigation = navigation.slice(0, 4);
+  const moreNavigation = navigation.slice(4);
 
   return (
     <>
@@ -101,7 +112,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
         {/* Bottom Navigation для мобильных */}
         <nav className="fixed bottom-0 left-0 right-0 flex items-center justify-around border-t border-border md:hidden" style={{ background: 'var(--background)' }}>
-          {navigation.slice(0, 5).map((item) => {
+          {mainNavigation.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link key={item.href} href={item.href} className="flex-1">
@@ -119,6 +130,37 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               </Link>
             );
           })}
+
+          {/* Кнопка More с выпадающим меню */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className={cn(
+                  'w-full flex-col gap-1 rounded-none p-2 text-xs',
+                  moreNavigation.some(item => pathname === item.href) && 'text-primary'
+                )}
+              >
+                <span className="text-lg leading-none">⋮</span>
+                <span className="text-[10px]" style={{ color: 'var(--foreground)' }}>{t('common.more')}</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-48">
+              {moreNavigation.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <DropdownMenuItem key={item.href} asChild>
+                    <Link href={item.href} className="flex items-center gap-2">
+                      <item.icon className="h-4 w-4" />
+                      {item.name}
+                      {isActive && <Check className="ml-auto h-4 w-4" />}
+                    </Link>
+                  </DropdownMenuItem>
+                );
+              })}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
       </div>
     </>
