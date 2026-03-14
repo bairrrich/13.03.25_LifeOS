@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/
 import { Input } from '@/ui/components/input';
 import { Select } from '@/ui/components/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogDescription } from '@/ui/components/dialog';
-import { Plus, Pencil, Trash2, TrendingUp, TrendingDown, Wallet } from 'lucide-react';
+import { Plus, Pencil, Trash2, TrendingUp, TrendingDown, Wallet, Tag } from 'lucide-react';
 import { cn } from '@/shared/lib/cn';
 import Link from 'next/link';
 
@@ -177,7 +177,7 @@ export default function FinancePage() {
         </div>
 
         {/* Quick Links */}
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Link href="/finance/accounts">
             <Card className="hover:bg-accent transition-colors cursor-pointer">
               <CardHeader>
@@ -197,6 +197,17 @@ export default function FinancePage() {
                   {t('finance.budgets')}
                 </CardTitle>
                 <CardDescription>Контроль расходов по категориям</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+          <Link href="/finance/categories">
+            <Card className="hover:bg-accent transition-colors cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Tag className="h-5 w-5" />
+                  {t('finance.categories')}
+                </CardTitle>
+                <CardDescription>Категории доходов и расходов</CardDescription>
               </CardHeader>
             </Card>
           </Link>
