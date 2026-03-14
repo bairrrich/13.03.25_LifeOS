@@ -6,7 +6,6 @@ import { useTranslation } from '@/shared/lib/use-translation';
 import { Button } from '@/ui/components/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/components/card';
 import { Input } from '@/ui/components/input';
-import { Select } from '@/ui/components/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogDescription } from '@/ui/components/dialog';
 import { Plus, Book, Film, GraduationCap, FileText, Lightbulb, Trash2, Pencil, Star } from 'lucide-react';
 import { Badge } from '@/ui/components/badge';
@@ -31,29 +30,6 @@ interface Movie {
   watched: boolean;
 }
 
-interface Course {
-  id: string;
-  title: string;
-  provider?: string;
-  progress: number;
-  status: 'active' | 'completed' | 'paused';
-}
-
-interface Note {
-  id: string;
-  title: string;
-  content: string;
-  createdAt: number;
-}
-
-interface Idea {
-  id: string;
-  title: string;
-  description?: string;
-  category?: string;
-  status: 'captured' | 'reviewing' | 'active' | 'archived';
-}
-
 const mockBooks: BookItem[] = [
   { id: '1', title: 'Атомные привычки', author: 'Джеймс Клир', pages: 320, currentPage: 150, status: 'reading' },
   { id: '2', title: 'Думай медленно', author: 'Даниэль Канеман', pages: 640, currentPage: 640, status: 'completed', rating: 5 },
@@ -64,27 +40,11 @@ const mockMovies: Movie[] = [
   { id: '2', title: 'Интерстеллар', year: 2014, genre: 'Фантастика', watched: false },
 ];
 
-const mockCourses: Course[] = [
-  { id: '1', title: 'Machine Learning', provider: 'Coursera', progress: 65, status: 'active' },
-  { id: '2', title: 'React Advanced', provider: 'Udemy', progress: 100, status: 'completed' },
-];
-
-const mockNotes: Note[] = [
-  { id: '1', title: 'Идеи для проекта', content: 'Сделать CRUD страницы...', createdAt: Date.now() },
-];
-
-const mockIdeas: Idea[] = [
-  { id: '1', title: 'Новая фича', description: 'Добавить аналитику', category: 'продукт', status: 'reviewing' },
-];
-
 export default function MindPage() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'books' | 'movies' | 'courses' | 'notes' | 'ideas'>('books');
+  const [activeTab, setActiveTab] = useState<'books' | 'movies'>('books');
   const [books, setBooks] = useState<BookItem[]>(mockBooks);
   const [movies, setMovies] = useState<Movie[]>(mockMovies);
-  const [courses, setCourses] = useState<Course[]>(mockCourses);
-  const [notes, setNotes] = useState<Note[]>(mockNotes);
-  const [ideas, setIdeas] = useState<Idea[]>(mockIdeas);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const booksRead = books.filter(b => b.status === 'completed').length;
@@ -121,36 +81,17 @@ export default function MindPage() {
     }));
   };
 
-  const handleDelete = (id: string, type: 'book' | 'movie' | 'course' | 'note' | 'idea') => {
-    switch (type) {
-      case 'book': setBooks(books.filter(b => b.id !== id)); break;
-      case 'movie': setMovies(movies.filter(m => m.id !== id)); break;
-      case 'course': setCourses(courses.filter(c => c.id !== id)); break;
-      case 'note': setNotes(notes.filter(n => n.id !== id)); break;
-      case 'idea': setIdeas(ideas.filter(i => i.id !== id)); break;
+  const handleDelete = (id: string, type: 'book' | 'movie') => {
+    if (type === 'book') {
+      setBooks(books.filter(b => b.id !== id));
+    } else {
+      setMovies(movies.filter(m => m.id !== id));
     }
-  };
-
-  const getStatusBadge = (status: string) => {
-    const variants: Record<string, 'default' | 'success' | 'warning' | 'outline'> = {
-      completed: 'success',
-      reading: 'default',
-      want_to_read: 'outline',
-      active: 'default',
-      paused: 'warning',
-      watching: 'default',
-      watched: 'success',
-      reviewing: 'warning',
-    };
-    return <Badge variant={variants[status] || 'outline'}>{t(`mind.${status}`) || status}</Badge>;
   };
 
   const tabs = [
     { id: 'books' as const, label: t('mind.books'), icon: Book },
     { id: 'movies' as const, label: t('mind.movies'), icon: Film },
-    { id: 'courses' as const, label: t('mind.courses'), icon: GraduationCap },
-    { id: 'notes' as const, label: t('mind.notes'), icon: FileText },
-    { id: 'ideas' as const, label: t('mind.ideas'), icon: Lightbulb },
   ];
 
   return (
@@ -166,18 +107,17 @@ export default function MindPage() {
             <DialogTrigger asChild>
               <Button onClick={() => setIsDialogOpen(false)}>
                 <Plus className="mr-2 h-4 w-4" />
-                {t('common.add')}
+                {activeTab === 'books' ? t('mind.addBook') : t('mind.addMovie')}
               </Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>
-                  {activeTab === 'books' && t('mind.addBook')}
-                  {activeTab === 'movies' && t('mind.addMovie')}
-                  {activeTab === 'courses' && t('mind.addCourse')}
-                  {activeTab === 'notes' && t('mind.notes')}
-                  {activeTab === 'ideas' && t('mind.ideas')}
+                  {activeTab === 'books' ? t('mind.addBook') : t('mind.addMovie')}
                 </DialogTitle>
+                <DialogDescription>
+                  {activeTab === 'books' ? t('mind.addBook') : t('mind.addMovie')}
+                </DialogDescription>
               </DialogHeader>
               {activeTab === 'books' && (
                 <form onSubmit={handleAddBook} className="space-y-4">
@@ -197,7 +137,7 @@ export default function MindPage() {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-2 overflow-x-auto pb-2">
+        <div className="flex gap-2">
           {tabs.map((tab) => (
             <Button
               key={tab.id}
@@ -211,7 +151,7 @@ export default function MindPage() {
           ))}
         </div>
 
-        {/* Summary Cards for Books */}
+        {/* Summary for Books */}
         {activeTab === 'books' && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
@@ -258,7 +198,9 @@ export default function MindPage() {
                             {book.author} • {book.pages} {t('mind.pages')}
                           </CardDescription>
                         </div>
-                        {getStatusBadge(book.status)}
+                        <Badge variant={book.status === 'completed' ? 'success' : book.status === 'reading' ? 'default' : 'outline'}>
+                          {t(`mind.${book.status}`)}
+                        </Badge>
                       </div>
                     </CardHeader>
                     <CardContent className="space-y-3">
@@ -311,7 +253,9 @@ export default function MindPage() {
                         {movie.year} • {movie.genre}
                       </CardDescription>
                     </div>
-                    {getStatusBadge(movie.watched ? 'watched' : 'watching')}
+                    <Badge variant={movie.watched ? 'success' : 'outline'}>
+                      {movie.watched ? t('mind.watched') : t('mind.wantToWatch')}
+                    </Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -330,74 +274,6 @@ export default function MindPage() {
                       <Trash2 className="h-4 w-4 text-destructive" />
                     </Button>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
-
-        {/* Courses List */}
-        {activeTab === 'courses' && (
-          <div className="grid gap-4 md:grid-cols-2">
-            {courses.map((course) => (
-              <Card key={course.id}>
-                <CardHeader className="pb-2">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle>{course.title}</CardTitle>
-                      <CardDescription className="text-xs">{course.provider}</CardDescription>
-                    </div>
-                    {getStatusBadge(course.status)}
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <ProgressBar value={course.progress} showLabel />
-                  <Button variant="ghost" size="icon" className="absolute right-4 top-4" onClick={() => handleDelete(course.id, 'course')}>
-                    <Trash2 className="h-4 w-4 text-destructive" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
-
-        {/* Notes List */}
-        {activeTab === 'notes' && (
-          <div className="grid gap-4 md:grid-cols-3">
-            {notes.map((note) => (
-              <Card key={note.id}>
-                <CardHeader className="pb-2">
-                  <div className="flex items-start justify-between">
-                    <CardTitle className="text-base">{note.title}</CardTitle>
-                    <Button variant="ghost" size="icon" onClick={() => handleDelete(note.id, 'note')}>
-                      <Trash2 className="h-4 w-4 text-destructive" />
-                    </Button>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground line-clamp-3">{note.content}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
-
-        {/* Ideas List */}
-        {activeTab === 'ideas' && (
-          <div className="grid gap-4 md:grid-cols-2">
-            {ideas.map((idea) => (
-              <Card key={idea.id}>
-                <CardHeader className="pb-2">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle>{idea.title}</CardTitle>
-                      <CardDescription className="text-xs">{idea.category}</CardDescription>
-                    </div>
-                    {getStatusBadge(idea.status)}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{idea.description}</p>
                 </CardContent>
               </Card>
             ))}
