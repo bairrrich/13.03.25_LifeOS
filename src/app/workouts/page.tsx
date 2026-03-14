@@ -163,7 +163,7 @@ export default function WorkoutsPage() {
               <Flame className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{(totalVolume / 1000).toFixed(1)}k кг</div>
+              <div className="text-2xl font-bold">{(totalVolume / 1000).toFixed(1)}k {t('units.kg')}</div>
             </CardContent>
           </Card>
         </div>
@@ -213,7 +213,7 @@ export default function WorkoutsPage() {
                             {exercise.sets.map((set, setIndex) => (
                               <React.Fragment key={setIndex}>
                                 <div>{setIndex + 1}</div>
-                                <div>{set.weight} кг</div>
+                                <div>{set.weight} {t('units.kg')}</div>
                                 <div>{set.reps}</div>
                                 <div></div>
                               </React.Fragment>
