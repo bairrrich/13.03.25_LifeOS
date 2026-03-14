@@ -39,15 +39,15 @@ export default function CategoriesPage() {
 
   const incomeCategories = categories.filter(c => c.type === 'income');
   const expenseCategories = categories.filter(c => c.type === 'expense');
-  
-  const filteredCategories = filter === 'all' 
-    ? categories 
+
+  const filteredCategories = filter === 'all'
+    ? categories
     : categories.filter(c => c.type === filter);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
+
     const newCategory: Category = {
       id: editingCategory?.id || Date.now().toString(),
       name: formData.get('name') as string,
@@ -123,16 +123,16 @@ export default function CategoriesPage() {
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
                     defaultValue={editingCategory?.type || 'expense'}
                   >
-                    <option value="expense">Расход</option>
-                    <option value="income">Доход</option>
+                    <option value="expense">{t('finance.expense')}</option>
+                    <option value="income">{t('finance.income')}</option>
                   </select>
-                  <Input name="icon" label="Иконка" defaultValue={editingCategory?.icon} placeholder="📁" />
+                  <Input name="icon" label={t('finance.icon')} defaultValue={editingCategory?.icon} placeholder="📁" />
                 </div>
-                <Input name="color" label="Цвет" type="color" defaultValue={editingCategory?.color || '#3b82f6'} />
+                <Input name="color" label={t('finance.color')} type="color" defaultValue={editingCategory?.color || '#3b82f6'} />
                 <Input
                   name="budget"
                   type="number"
-                  label="Бюджет (для расходов)"
+                  label={t('finance.budgetForExpenses')}
                   defaultValue={editingCategory?.budget}
                   placeholder="0"
                 />
@@ -156,7 +156,7 @@ export default function CategoriesPage() {
             size="sm"
             onClick={() => setFilter('all')}
           >
-            Все ({categories.length})
+            {t('finance.all')} ({categories.length})
           </Button>
           <Button
             variant={filter === 'income' ? 'default' : 'outline'}
@@ -164,7 +164,7 @@ export default function CategoriesPage() {
             onClick={() => setFilter('income')}
           >
             <TrendingUp className="mr-2 h-4 w-4" />
-            Доходы ({incomeCategories.length})
+            {t('finance.incomes')} ({incomeCategories.length})
           </Button>
           <Button
             variant={filter === 'expense' ? 'default' : 'outline'}
@@ -172,7 +172,7 @@ export default function CategoriesPage() {
             onClick={() => setFilter('expense')}
           >
             <TrendingDown className="mr-2 h-4 w-4" />
-            Расходы ({expenseCategories.length})
+            {t('finance.expenses')} ({expenseCategories.length})
           </Button>
         </div>
 
@@ -217,7 +217,7 @@ export default function CategoriesPage() {
         {/* Summary */}
         <Card>
           <CardHeader>
-            <CardTitle>Статистика</CardTitle>
+            <CardTitle>{t('finance.categoryStats')}</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4 md:grid-cols-2">
             <div className="flex items-center gap-4">
@@ -225,7 +225,7 @@ export default function CategoriesPage() {
                 <TrendingUp className="h-6 w-6 text-green-600" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Категории доходов</p>
+                <p className="text-sm text-muted-foreground">{t('finance.incomeCategories')}</p>
                 <p className="text-2xl font-bold">{incomeCategories.length}</p>
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function CategoriesPage() {
                 <TrendingDown className="h-6 w-6 text-red-600" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Категории расходов</p>
+                <p className="text-sm text-muted-foreground">{t('finance.expenseCategories')}</p>
                 <p className="text-2xl font-bold">{expenseCategories.length}</p>
               </div>
             </div>

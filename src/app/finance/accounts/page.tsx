@@ -45,7 +45,7 @@ export default function AccountsPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
+
     const newAccount: Account = {
       id: editingAccount?.id || Date.now().toString(),
       name: formData.get('name') as string,
@@ -164,7 +164,7 @@ export default function AccountsPage() {
         {/* Total Balance */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-sm font-medium text-muted-foreground">Общий баланс</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">{t('finance.totalBalance')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-bold">{totalBalance.toFixed(2)} €</div>
@@ -175,7 +175,7 @@ export default function AccountsPage() {
         <div className="grid gap-4 md:grid-cols-4">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-xs font-medium text-muted-foreground">Наличные</CardTitle>
+              <CardTitle className="text-xs font-medium text-muted-foreground">{t('finance.cash')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xl font-bold">{byType.cash.toFixed(2)} €</div>
@@ -183,7 +183,7 @@ export default function AccountsPage() {
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-xs font-medium text-muted-foreground">Счета</CardTitle>
+              <CardTitle className="text-xs font-medium text-muted-foreground">{t('finance.bank')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xl font-bold">{byType.bank.toFixed(2)} €</div>
@@ -191,7 +191,7 @@ export default function AccountsPage() {
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-xs font-medium text-muted-foreground">Карты</CardTitle>
+              <CardTitle className="text-xs font-medium text-muted-foreground">{t('finance.card')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xl font-bold">{byType.card.toFixed(2)} €</div>
@@ -199,7 +199,7 @@ export default function AccountsPage() {
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-xs font-medium text-muted-foreground">Инвестиции</CardTitle>
+              <CardTitle className="text-xs font-medium text-muted-foreground">{t('finance.investment')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xl font-bold">{byType.investment.toFixed(2)} €</div>

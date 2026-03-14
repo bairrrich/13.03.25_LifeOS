@@ -44,7 +44,7 @@ export default function BudgetsPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
+
     const newBudget: Budget = {
       id: editingBudget?.id || Date.now().toString(),
       name: formData.get('name') as string,
@@ -100,7 +100,7 @@ export default function BudgetsPage() {
     return (
       <Badge variant="success">
         <CheckCircle2 className="mr-1 h-3 w-3" />
-          В норме
+        В норме
       </Badge>
     );
   };
@@ -143,13 +143,13 @@ export default function BudgetsPage() {
                 />
                 <Select
                   name="period"
-                  label="Период"
+                  label={t('finance.period')}
                   defaultValue={editingBudget?.period || 'monthly'}
                   options={[
-                    { value: 'daily', label: 'Ежедневно' },
-                    { value: 'weekly', label: 'Еженедельно' },
-                    { value: 'monthly', label: 'Ежемесячно' },
-                    { value: 'yearly', label: 'Ежегодно' },
+                    { value: 'daily', label: t('finance.daily') },
+                    { value: 'weekly', label: t('finance.weekly') },
+                    { value: 'monthly', label: t('finance.monthly') },
+                    { value: 'yearly', label: t('finance.yearly') },
                   ]}
                 />
                 <DialogFooter>
@@ -169,7 +169,7 @@ export default function BudgetsPage() {
         <div className="grid gap-4 md:grid-cols-3">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Всего бюджет</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('finance.budgetTotal')}</CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -178,7 +178,7 @@ export default function BudgetsPage() {
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Потрачено</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('finance.spent')}</CardTitle>
               <TrendingUp className="h-4 w-4 text-red-500" />
             </CardHeader>
             <CardContent>
@@ -187,7 +187,7 @@ export default function BudgetsPage() {
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Остаток</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('finance.remaining')}</CardTitle>
               <TrendingUp className="h-4 w-4 text-green-500" />
             </CardHeader>
             <CardContent>
@@ -202,7 +202,7 @@ export default function BudgetsPage() {
             <CardHeader>
               <div className="flex items-center gap-2">
                 <AlertCircle className="h-5 w-5 text-destructive" />
-                <CardTitle className="text-destructive">Превышен бюджет</CardTitle>
+                <CardTitle className="text-destructive">{t('finance.overBudget')}</CardTitle>
               </div>
               <CardDescription>
                 {overBudget} бюджет(а) превышены
@@ -216,7 +216,7 @@ export default function BudgetsPage() {
           {budgets.map((budget) => {
             const percent = Math.min((budget.spent / budget.amount) * 100, 100);
             const remaining = budget.amount - budget.spent;
-            
+
             return (
               <Card key={budget.id}>
                 <CardHeader className="pb-2">
@@ -245,8 +245,8 @@ export default function BudgetsPage() {
                     </span>
                     <span className="font-medium">{Math.round(percent)}%</span>
                   </div>
-                  <ProgressBar 
-                    value={percent} 
+                  <ProgressBar
+                    value={percent}
                     variant={percent > 100 ? 'destructive' : percent > 80 ? 'warning' : 'default'}
                     showLabel={false}
                   />
