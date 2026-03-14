@@ -89,7 +89,10 @@
     "habitMeditation": "Медитация",
     "hoursWeek": "часов за неделю",
     "avgNight": "в среднем за ночь",
-    "normal": "Норма"
+    "normal": "Норма",
+    "of": "из",
+    "vsLastWeek": "vs прошлой недели",
+    "steps": "Шаги"
   },
   "finance": {
     "accounts": "Счета",
@@ -364,5 +367,16 @@
     "data": "Данные",
     "dataDescription": "Управление данными приложения",
     "clearData": "Очистить все данные"
+  },
+  "units": {
+    "eur": "€",
+    "kcal": "ккал",
+    "kg": "кг",
+    "g": "г",
+    "hours": "ч",
+    "minutes": "мин",
+    "percent": "%",
+    "km": "км",
+    "steps": "шагов"
   }
 }

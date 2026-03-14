@@ -111,11 +111,11 @@ export default function DashboardPage() {
               <Wallet className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{mockStats.finance.expenses} €</div>
+              <div className="text-2xl font-bold">{mockStats.finance.expenses} {t('units.eur')}</div>
               <div className="flex items-center gap-1 text-xs">
                 <TrendingUp className="h-3 w-3 text-green-500" />
-                <span className="text-green-500">+{mockStats.finance.trend}%</span>
-                <span className="text-muted-foreground">vs прошлой недели</span>
+                <span className="text-green-500">+{mockStats.finance.trend}{t('units.percent')}</span>
+                <span className="text-muted-foreground">{t('dashboard.vsLastWeek')}</span>
               </div>
             </CardContent>
           </Card>
@@ -128,7 +128,7 @@ export default function DashboardPage() {
             <CardContent>
               <div className="text-2xl font-bold">{mockStats.nutrition.calories}</div>
               <p className="text-xs text-muted-foreground">
-                из {mockStats.nutrition.goal} kcal
+                {t('dashboard.of')} {mockStats.nutrition.goal} {t('units.kcal')}
               </p>
               <div className="mt-2">
                 <ProgressBar
@@ -176,13 +176,13 @@ export default function DashboardPage() {
               <BookOpen className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">45 мин</div>
+              <div className="text-2xl font-bold">45 {t('units.minutes')}</div>
               <p className="text-xs text-muted-foreground">
                 {t('dashboard.today')}
               </p>
               <div className="flex items-center gap-1 text-xs mt-1">
                 <TrendingUp className="h-3 w-3 text-green-500" />
-                <span>+12 мин</span>
+                <span>+12 {t('units.minutes')}</span>
               </div>
             </CardContent>
           </Card>
@@ -196,7 +196,7 @@ export default function DashboardPage() {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{mockStats.finance.balance} €</div>
+              <div className="text-2xl font-bold">{mockStats.finance.balance} {t('units.eur')}</div>
               <div className="flex items-center gap-2 text-xs mt-2">
                 <div className="flex items-center gap-1">
                   <TrendingUp className="h-3 w-3 text-green-500" />
@@ -236,7 +236,7 @@ export default function DashboardPage() {
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Шаги</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('dashboard.steps')}</CardTitle>
               <Calendar className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>

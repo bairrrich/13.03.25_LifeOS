@@ -89,7 +89,10 @@
     "habitMeditation": "Meditation",
     "hoursWeek": "hours/week",
     "avgNight": "avg per night",
-    "normal": "Normal"
+    "normal": "Normal",
+    "of": "of",
+    "vsLastWeek": "vs last week",
+    "steps": "Steps"
   },
   "finance": {
     "accounts": "Accounts",
@@ -340,5 +343,16 @@
     "data": "Data",
     "dataDescription": "Manage app data",
     "clearData": "Clear all data"
+  },
+  "units": {
+    "eur": "€",
+    "kcal": "kcal",
+    "kg": "kg",
+    "g": "g",
+    "hours": "h",
+    "minutes": "min",
+    "percent": "%",
+    "km": "km",
+    "steps": "steps"
   }
 }
