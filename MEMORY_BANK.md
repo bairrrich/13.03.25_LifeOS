@@ -1,219 +1,208 @@
 # LifeOS Memory Bank
 
-## 📋 Описание проекта
+## 📋 Project Overview
 
-**LifeOS** — это единая life-tracker система для учета, контроля и улучшения всех аспектов жизни человека.
+**LifeOS** — Personal life management system for tracking and improving all aspects of life.
 
-### Основные модули
-- **Финансы** — полный финансовый учет (счета, транзакции, бюджеты)
-- **Питание** — контроль питания и нутриентов (продукты, приёмы пищи)
-- **Тренировки** — планирование и учет тренировок
-- **Здоровье** — сон, витамины, анализы, метрики
-- **Ум** — книги, фильмы, курсы, заметки
-- **Красота** — уход за телом, косметика, рутины
-- **Привычки** — формирование и отслеживание привычек
-- **Цели** — долгосрочные цели с прогрессом
+### Core Modules
+- **Finance** — Complete financial tracking (accounts, transactions, budgets)
+- **Nutrition** — Food tracking and macro counting
+- **Workouts** — Workout planning and tracking
+- **Health** — Sleep, weight, vitamins, health metrics
+- **Mind** — Books, movies, courses, notes
+- **Beauty** — Cosmetics and beauty routines
+- **Habits** — Habit formation and tracking
+- **Goals** — Long-term goals with progress tracking
 
 ---
 
-## 🏗️ Архитектура
+## 🏗️ Architecture
 
-### Технологический стек
+### Technology Stack
 - **Frontend:** Next.js 16, React 19, TypeScript
-- **Стили:** Tailwind CSS v4, shadcn/ui компоненты
-- **База данных:** Dexie.js (IndexedDB) — offline-first
-- **Синхронизация:** Supabase (планируется)
+- **Styling:** Tailwind CSS v4, shadcn/ui components
+- **Database:** Dexie.js (IndexedDB) — offline-first
 - **i18n:** next-i18next (ru/en)
+- **Charts:** Recharts
 
-### Структура проекта
+### Project Structure
 ```
 src/
 ├── app/                    # Next.js App Router
-│   ├── layout.tsx          # Корневой layout с ThemeProvider
-│   ├── page.tsx            # Главная страница (Dashboard)
-│   └── globals.css         # Глобальные стили и CSS переменные
-├── core/                   # Ядро платформы
-│   ├── entity/             # Entity System (реестр сущностей)
-│   ├── database/           # Dexie.js схема БД
-│   ├── crud/               # Универсальный CRUD Engine
-│   ├── query/              # Query Engine (фильтры, сортировка)
-│   ├── events/             # Event Bus (события)
-│   └── sync/               # Sync Engine (offline-first)
-├── modules/                # Бизнес-модули
-│   ├── finance/            # Финансы
-│   ├── habits/             # Привычки
-│   ├── nutrition/          # Питание
-│   ├── workouts/           # Тренировки
-│   ├── health/             # Здоровье
-│   ├── goals/              # Цели
-│   ├── mind/               # Ум (книги, фильмы, курсы)
-│   └── beauty/             # Красота
-├── ui/                     # UI компоненты
-│   ├── components/         # Переиспользуемые компоненты
-│   └── layout/             # Layout компоненты
-└── shared/                 # Общие утилиты
-    ├── lib/                # Утилиты (cn, i18n, generate-id)
-    └── types/              # Общие типы (BaseEntity)
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Dashboard
+│   ├── finance/            # Finance module
+│   ├── habits/             # Habits module
+│   ├── nutrition/          # Nutrition module
+│   ├── workouts/           # Workouts module
+│   ├── health/             # Health module
+│   ├── goals/              # Goals module
+│   ├── mind/               # Mind module
+│   ├── beauty/             # Beauty module
+│   └── settings/           # Settings page
+├── core/                   # Core systems
+│   ├── entity/             # Entity System
+│   ├── database/           # Database Layer (Dexie)
+│   ├── crud/               # CRUD Engine
+│   ├── query/              # Query Engine
+│   ├── events/             # Event System
+│   └── sync/               # Sync Engine
+├── modules/                # Business modules
+│   ├── finance/
+│   ├── habits/
+│   ├── nutrition/
+│   ├── workouts/
+│   ├── health/
+│   ├── goals/
+│   ├── mind/
+│   └── beauty/
+├── ui/                     # UI components
+│   ├── components/         # Reusable components
+│   └── layout/             # Layout components
+└── shared/                 # Shared utilities
+    ├── lib/                # Utilities (i18n, cn, etc.)
+    └── types/              # Shared types
 ```
 
 ---
 
-## 🎨 Дизайн-система
+## 📊 Current Status
 
-### Цветовая схема (OKLCH)
-Все цвета заданы в цветовом пространстве OKLCH через CSS-переменные.
+### ✅ Completed (100%)
 
-#### Light Theme
+**Phase 0: Infrastructure**
+- [x] Next.js 16 project setup
+- [x] Tailwind CSS v4 + OKLCH colors
+- [x] Theme system (light/dark/high-contrast)
+- [x] ESLint + Prettier + Husky
+- [x] i18n (ru/en) with 386+ keys
+- [x] Language persistence
+
+**Phase 1: Core Systems**
+- [x] Entity System (20+ entities)
+- [x] Database Layer (40+ tables)
+- [x] CRUD Engine
+- [x] Query Engine
+- [x] Event System
+- [x] Sync Engine
+
+**Phase 2: UI Components**
+- [x] 10+ UI components (Button, Card, Badge, etc.)
+- [x] AppLayout with navigation
+- [x] ThemeSwitcher
+- [x] LanguageSwitcher
+- [x] CommandPalette (⌘K)
+- [x] GlobalSearch
+- [x] LocaleSync
+
+**Phase 3: Business Modules**
+- [x] Finance (Transactions, Accounts, Budgets, Categories)
+- [x] Habits (Tracking, Calendar, Streak)
+- [x] Nutrition (Meals, Foods, Macros)
+- [x] Workouts (Exercises, Sets, Volume)
+- [x] Health (Sleep, Weight, Metrics)
+- [x] Goals (Tracking, Progress)
+- [x] Mind (Books, Movies)
+- [x] Beauty (Cosmetics, Routines)
+
+**Phase 4: Dashboard**
+- [x] Daily summary widgets (9 cards)
+- [x] Charts (Recharts integration)
+- [x] Weekly/Monthly toggle
+- [x] Quick actions
+
+### 🔄 In Progress
+- [ ] Automation System
+- [ ] AI Assistant
+- [ ] Notifications System
+- [ ] Unit/Integration Tests
+- [ ] PWA Support
+
+---
+
+## 🎨 Design System
+
+### Color Scheme (OKLCH)
+All colors use OKLCH color space for perceptual uniformity.
+
+**Light Theme:**
 ```css
 --background: oklch(0.985 0.002 250);
 --foreground: oklch(0.2 0.01 250);
 --primary: oklch(0.55 0.12 260);
 ```
 
-#### Dark Theme
+**Dark Theme:**
 ```css
 --background: oklch(0.18 0.008 250);
 --foreground: oklch(0.92 0.005 250);
 --primary: oklch(0.65 0.14 260);
 ```
 
-#### High Contrast
+**High Contrast:**
 ```css
 --background: oklch(1 0 0);
 --foreground: oklch(0 0 0);
---primary: oklch(0.4 0.15 260);
 ```
 
-### Темы
-- **Light** — светлая тема по умолчанию
-- **Dark** — тёмная тема
-- **High Contrast** — контрастная тема для доступности
-- **System** — системная (автоматически)
-
-Переключение через `data-theme` атрибут на `<html>`.
+### Themes
+- Light (default)
+- Dark
+- High Contrast
+- System (auto)
 
 ---
 
-## 📦 Основные зависимости
+## 🌐 Internationalization
 
-### Runtime
-```json
-{
-  "next": "16.1.6",
-  "react": "19.2.3",
-  "dexie": "^4.0.0",
-  "next-themes": "^0.4.6",
-  "next-i18next": "^15.4.3",
-  "zod": "^3.24.0",
-  "lucide-react": "^0.577.0",
-  "class-variance-authority": "^0.7.1",
-  "clsx": "^2.1.1",
-  "tailwind-merge": "^3.5.0"
-}
-```
+### Supported Languages
+- **ru** — Russian (default)
+- **en** — English
 
-### Dev Dependencies
-```json
-{
-  "typescript": "^5",
-  "eslint": "^9",
-  "prettier": "^3.8.1",
-  "husky": "^9.1.7",
-  "lint-staged": "^16.3.3",
-  "@commitlint/cli": "^20.4.4",
-  "tailwindcss": "^4"
-}
-```
+### Translation Keys: 386+
+- common: 40 keys
+- nav: 10 keys
+- dashboard: 38 keys
+- finance: 52 keys
+- habits: 18 keys
+- nutrition: 20 keys
+- workouts: 22 keys
+- health: 24 keys
+- goals: 17 keys
+- mind: 19 keys
+- beauty: 22 keys
+- theme: 4 keys
+- language: 3 keys
+- errors: 10 keys
+- validation: 7 keys
+- commandPalette: 4 keys
+- globalSearch: 3 keys
+- settings: 13 keys
+- units: 9 keys
 
----
-
-## 🔧 Инструменты разработки
-
-### Команды
-```bash
-npm run dev          # Запуск dev-сервера
-npm run build        # Production сборка
-npm run start        # Запуск production сборки
-npm run lint         # ESLint проверка
-```
-
-### Git Hooks (Husky)
-- **pre-commit:** lint-staged (ESLint + Prettier)
-- **commit-msg:** commitlint (Conventional Commits)
-
-### Формат коммитов (Conventional Commits)
-```
-feat: новая функция
-fix: исправление ошибки
-docs: обновление документации
-style: форматирование
-refactor: рефакторинг
-test: добавление тестов
-chore: настройка сборки
-```
+### Language Persistence
+- Stored in localStorage (`lifeos-locale`)
+- Synced across all pages
+- HTML lang attribute updates automatically
+- Survives page refresh and navigation
 
 ---
 
-## 📊 База данных
+## 📦 Database Schema
 
-### Схема Dexie.js
-База данных содержит 40+ таблиц для всех модулей.
+### Core Tables (40+)
+- `transactions`, `accounts`, `categories`, `budgets`
+- `habits`, `habit_logs`
+- `foods`, `meals`, `meal_entries`
+- `exercises`, `workouts`, `sets`
+- `sleep_logs`, `weight_logs`, `vitamins`, `health_metrics`
+- `goals`, `goal_milestones`, `goal_progress`
+- `books`, `movies`, `courses`, `notes`, `ideas`
+- `cosmetics`, `beauty_routines`, `routine_steps`
+- `sync_queue`, `devices`, `settings`
 
-#### Core таблицы
-- `transactions` — финансовые транзакции
-- `accounts` — счета
-- `categories` — категории расходов/доходов
-- `budgets` — бюджеты
-
-#### Habits
-- `habits` — привычки
-- `habit_logs` — записи выполнения
-
-#### Nutrition
-- `foods` — продукты
-- `meals` — приёмы пищи
-- `meal_entries` — записи приёма пищи
-
-#### Workouts
-- `exercises` — упражнения
-- `workouts` — тренировки
-- `sets` — подходы
-
-#### Health
-- `sleep_logs` — сон
-- `weight_logs` — вес
-- `vitamins` — витамины
-- `vitamin_logs` — приём витаминов
-- `health_metrics` — метрики здоровья
-- `lab_tests` — лабораторные тесты
-- `lab_results` — результаты тестов
-
-#### Goals
-- `goals` — цели
-- `goal_milestones` — этапы целей
-- `goal_progress` — прогресс целей
-
-#### Mind
-- `books` — книги
-- `reading_logs` — записи чтения
-- `movies` — фильмы
-- `courses` — курсы
-- `notes` — заметки
-- `ideas` — идеи
-
-#### Beauty
-- `cosmetics` — косметика
-- `beauty_routines` — рутины
-- `routine_steps` — шаги рутин
-- `beauty_logs` — записи выполнения
-
-#### System
-- `sync_queue` — очередь синхронизации
-- `devices` — устройства
-- `settings` — настройки
-
-### BaseEntity
-Все сущности наследуют базовый интерфейс:
+### BaseEntity Interface
+All entities inherit:
 ```typescript
 interface BaseEntity {
   id: string;
@@ -231,148 +220,113 @@ interface BaseEntity {
 
 ---
 
-## 🔄 Синхронизация
+## ⌨️ Keyboard Shortcuts
 
-### Offline-first архитектура
-1. Все изменения сначала записываются в локальную БД (IndexedDB)
-2. Изменения добавляются в очередь синхронизации (`sync_queue`)
-3. Sync Engine отправляет изменения на сервер (Supabase)
-4. Pull изменений с сервера
-5. Merge и разрешение конфликтов
-
-### Стратегии разрешения конфликтов
-- **Last Write Wins** — последняя запись побеждает
-- **Merge fields** — объединение полей
-- **Manual** — ручное разрешение (планируется)
+| Shortcut | Action |
+|----------|--------|
+| `⌘K` / `Ctrl+K` | Open Command Palette |
+| `↑` `↓` | Navigate results |
+| `Enter` | Select result |
+| `Escape` | Close |
 
 ---
 
-## 🌐 Интернационализация (i18n)
+## 📱 Mobile Navigation
 
-### Поддерживаемые языки
-- **ru** — русский (по умолчанию)
-- **en** — английский
+**Bottom Nav (5 buttons):**
+1. 📊 Dashboard
+2. 💰 Finance
+3. 🍽️ Nutrition
+4. 💪 Workouts
+5. ⋮ More (dropdown)
+   - Health
+   - Habits
+   - Goals
+   - Mind
+   - Beauty
+   - Settings
 
-### Структура
-```
-public/locales/
-├── ru/
-│   └── common.json
-└── en/
-    └── common.json
-```
+---
 
-### Использование
-```typescript
-import { useTranslation } from '@/shared/lib/use-translation';
+## 🚀 Development Commands
 
-const { t } = useTranslation();
-<h1>{t('dashboard.title')}</h1>
+```bash
+npm run dev          # Start dev server
+npm run build        # Production build
+npm run start        # Start production server
+npm run lint         # ESLint check
 ```
 
 ---
 
-## 📝 Правила разработки
+## 📈 Metrics
 
-### 1. Управление зависимостями
-- Проверять актуальность перед установкой
-- Фиксировать версии в package.json
-- Предпочитать хорошо поддерживаемые библиотеки
-
-### 2. Стилизация
-- Использовать Tailwind CSS + shadcn/ui
-- Цвета в OKLCH через CSS-переменные
-- Поддержка светлой/тёмной/контрастной тем
-
-### 3. Именование
-- Переменные: `camelCase`
-- Функции: `camelCase` (глаголы)
-- Компоненты: `PascalCase`
-- Файлы компонентов: `PascalCase.tsx`
-- Константы: `UPPER_SNAKE_CASE`
-
-### 4. Интернационализация
-- Все тексты выносить в файлы локалей
-- Использовать точечную нотацию ключей
-
-### 5. Mobile First
-- Сначала стили для мобильных
-- Адаптация через `sm:`, `md:`, `lg:` брейкпоинты
+- **Pages:** 20+
+- **UI Components:** 15+
+- **CRUD Operations:** 32+
+- **Translation Keys:** 386
+- **Database Tables:** 40+
+- **Business Modules:** 8
+- **Core Systems:** 6
+- **Test Coverage:** 0% (TODO)
 
 ---
 
-## 🚀 Текущий статус
+## 🔧 Key Features
 
-### ✅ Завершено
-- [x] Инициализация Next.js проекта
-- [x] Настройка Tailwind CSS + shadcn/ui
-- [x] Настройка OKLCH цветовой схемы
-- [x] Настройка тем (light/dark/high-contrast)
-- [x] ESLint + Prettier + Husky + commitlint
-- [x] i18n (ru/en)
-- [x] Entity System с реестром
-- [x] Database Layer (Dexie.js, 40+ таблиц)
-- [x] CRUD Engine (универсальный)
-- [x] Query Engine (фильтры, сортировка, агрегация)
-- [x] Event System (event bus)
-- [x] Sync Engine (offline-first)
-- [x] UI компоненты (Button, Card, Badge, etc.)
-- [x] AppLayout с навигацией
-- [x] Finance модуль (полный)
-- [x] Habits модуль (полный)
-- [x] Nutrition модуль (полный)
-- [x] Workouts модуль (полный)
-- [x] Health модуль (полный)
-- [x] Goals модуль (полный)
-- [x] Mind модуль (полный)
-- [x] Beauty модуль (полный)
+### Command Palette (⌘K)
+- Quick navigation to all pages
+- Quick actions (add transaction, habit, etc.)
+- Theme switching
+- Language switching
 
-### 🔄 В процессе
-- [ ] Dashboard с аналитикой
-- [ ] Страницы для модулей
-- [ ] Формы для CRUD операций
+### Global Search
+- Search across all modules
+- Type-ahead results
+- Filter by type
+- Instant results
 
-### 📅 Планируется
-- [ ] Automation System
-- [ ] AI Assistant
-- [ ] Command Palette
-- [ ] Global Search
-- [ ] Notifications System
-- [ ] Тесты (unit/integration/E2E)
-- [ ] PWA поддержка
-- [ ] Синхронизация с Supabase
+### Settings
+- Theme selection (light/dark/system)
+- Language selection (RU/EN)
+- Week start day (Monday/Sunday/Saturday)
+- Data management
 
 ---
 
-## 📂 Важные файлы
+## 📝 Recent Updates
 
-| Файл | Описание |
-|------|----------|
-| `.project/00_RULES.md` | Универсальные правила разработки |
-| `.project/01_описание.md` | Описание проекта и философия |
-| `.project/02_база_данных.md` | ER-диаграмма и схема БД |
-| `.project/03_CRUD_Entity.md` | Entity System архитектура |
-| `.project/04_архитектура.md` | Модульная архитектура |
-| `.project/05_ui.md` | UI Design System |
-| `.project/07_sync.md` | Sync Engine архитектура |
-| `.project/08_query_engin.md` | Query Engine, Events, Automation |
-| `.project/09_core.md` | Core сервисы платформы |
-| `.project/10_color_scheme.md` | Документация по цветам |
-| `.project/11_theme_fix.md` | Решение проблем с темами |
-| `.project/12_theme_fix_complete.md` | Финальное исправление тем |
-| `.project/13_background_setup.md` | Настройка фона |
+### 2026-03-14
+- ✅ Full i18n localization (RU/EN)
+- ✅ Language persistence across pages
+- ✅ HTML lang attribute sync
+- ✅ Settings page language button sync
+- ✅ All units localized (€, kcal, kg, g, etc.)
+- ✅ Command Palette implemented
+- ✅ Global Search implemented
+- ✅ Mobile navigation with More button
+- ✅ All module pages completed
 
 ---
 
-## 🔗 Ссылки
+## 🎯 Next Steps
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [shadcn/ui](https://ui.shadcn.com)
-- [Dexie.js Documentation](https://dexie.org)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+### High Priority
+1. [ ] Automation System (rules & triggers)
+2. [ ] AI Assistant (analysis & recommendations)
+3. [ ] Notifications System
+
+### Medium Priority
+4. [ ] Unit Tests (Jest + RTL)
+5. [ ] Integration Tests (Playwright)
+6. [ ] PWA Support
+
+### Low Priority
+7. [ ] Supabase Sync
+8. [ ] Data Export/Import
+9. [ ] Analytics Dashboard
 
 ---
 
-**Последнее обновление:** 2026-03-13
-**Версия:** 0.1.0 (MVP в разработке)
+**Last Updated:** 2026-03-14
+**Version:** 0.1.0 (MVP Complete)

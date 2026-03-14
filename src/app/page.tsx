@@ -229,7 +229,7 @@ export default function DashboardPage() {
             <CardContent>
               <div className="text-2xl font-bold">{mockStats.nutrition.protein}g</div>
               <p className="text-xs text-muted-foreground">
-                {mockStats.nutrition.carbs}g углеводов • {mockStats.nutrition.fat}g жиров
+                {mockStats.nutrition.carbs}{t('units.g')} {t('nutrition.carbs').toLowerCase()} • {mockStats.nutrition.fat}{t('units.g')} {t('nutrition.fat').toLowerCase()}
               </p>
             </CardContent>
           </Card>
@@ -242,7 +242,7 @@ export default function DashboardPage() {
             <CardContent>
               <div className="text-2xl font-bold">{mockStats.health.steps}</div>
               <p className="text-xs text-muted-foreground">
-                ~6.5 км
+                ~{Math.round(mockStats.health.steps / 1000)} {t('units.km')}
               </p>
             </CardContent>
           </Card>

@@ -84,7 +84,7 @@ export function GlobalSearch({
           id: `habit-${h.id}`,
           type: 'habit',
           title: h.name,
-          description: `${h.streak} дней серия`,
+          description: `${h.streak} ${t('habits.streak')}`,
           href: '/habits',
           icon: CheckCircle2,
         });
@@ -112,7 +112,7 @@ export function GlobalSearch({
           id: `goal-${g.id}`,
           type: 'goal',
           title: g.name,
-          description: `${g.progress}% прогресс`,
+          description: `${g.progress}% ${t('goals.progress')}`,
           href: '/goals',
           icon: Target,
         });
@@ -189,7 +189,7 @@ export function GlobalSearch({
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Поиск по всем модулям..."
+              placeholder={t('globalSearch.placeholder')}
               className="border-0 focus-visible:ring-0 px-0"
               autoFocus
             />
@@ -200,13 +200,13 @@ export function GlobalSearch({
         <div className="max-h-[400px] overflow-y-auto p-2">
           {results.length === 0 && query.trim() && (
             <div className="text-center py-8 text-muted-foreground">
-              Ничего не найдено
+              {t('globalSearch.noResults')}
             </div>
           )}
 
           {results.length === 0 && !query.trim() && (
             <div className="text-center py-8 text-muted-foreground">
-              Введите запрос для поиска по всем модулям
+              {t('globalSearch.typeHint')}
             </div>
           )}
 
