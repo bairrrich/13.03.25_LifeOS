@@ -103,13 +103,13 @@ export default function CategoriesPage() {
             <DialogTrigger asChild>
               <Button onClick={() => setEditingCategory(null)}>
                 <Plus className="mr-2 h-4 w-4" />
-                {t('common.add')}
+                {t('finance.addCategory')}
               </Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>
-                  {editingCategory ? t('common.edit') : t('common.add')}
+                  {editingCategory ? t('common.edit') : t('finance.addCategory')}
                 </DialogTitle>
                 <DialogDescription>
                   {editingCategory ? t('finance.editCategory') : t('finance.createCategory')}
@@ -156,7 +156,7 @@ export default function CategoriesPage() {
             size="sm"
             onClick={() => setFilter('all')}
           >
-            {t('finance.all')} ({categories.length})
+            {t('finance.all')} <span className="text-muted-foreground">({categories.length})</span>
           </Button>
           <Button
             variant={filter === 'income' ? 'default' : 'outline'}
@@ -164,7 +164,7 @@ export default function CategoriesPage() {
             onClick={() => setFilter('income')}
           >
             <TrendingUp className="mr-2 h-4 w-4" />
-            {t('finance.incomes')} ({incomeCategories.length})
+            {t('finance.incomes')} <span className="text-muted-foreground">({incomeCategories.length})</span>
           </Button>
           <Button
             variant={filter === 'expense' ? 'default' : 'outline'}
@@ -172,7 +172,7 @@ export default function CategoriesPage() {
             onClick={() => setFilter('expense')}
           >
             <TrendingDown className="mr-2 h-4 w-4" />
-            {t('finance.expenses')} ({expenseCategories.length})
+            {t('finance.expenses')} <span className="text-muted-foreground">({expenseCategories.length})</span>
           </Button>
         </div>
 

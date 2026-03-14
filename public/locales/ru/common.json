@@ -120,8 +120,9 @@
     "manageAccounts": "Управление счетами и картами",
     "trackExpenses": "Контроль расходов по категориям",
     "manageCategories": "Управление категориями",
+    "addCategory": "Добавить категорию",
     "editCategory": "Редактировать категорию",
-    "createCategory": "Создать новую категорию",
+    "createCategory": "Создать категорию",
     "budgetAmount": "Бюджет: {amount} €",
     "budgetsOver": "бюджет(а) превышено"
   },
