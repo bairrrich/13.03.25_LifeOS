@@ -166,11 +166,14 @@
     "bestStreak": "Best Streak",
     "completionRate": "Completion Rate",
     "markComplete": "Mark Complete",
-    "markMissed": "Mark Missed"
+    "markMissed": "Mark Missed",
+    "weeklyProgress": "Weekly Progress",
+    "progress": "Progress"
   },
   "nutrition": {
     "foods": "Foods",
     "meals": "Meals",
+    "meal": "Meal",
     "recipes": "Recipes",
     "addFood": "Add Food",
     "addMeal": "Add Meal",
@@ -187,18 +190,25 @@
     "breakfast": "Breakfast",
     "lunch": "Lunch",
     "dinner": "Dinner",
-    "snack": "Snack"
+    "snack": "Snack",
+    "searchFood": "Search food..."
   },
   "workouts": {
     "exercises": "Exercises",
     "workouts": "Workouts",
+    "workout": "Workout",
+    "streak": "day streak",
     "sets": "Sets",
+    "set": "Set",
+    "reps": "Reps",
+    "weight": "Weight",
     "addWorkout": "Add Workout",
     "addExercise": "Add Exercise",
     "workoutName": "Workout Name",
     "duration": "Duration",
-    "reps": "Reps",
-    "weight": "Weight",
+    "minutes": "min",
+    "hours": "hours",
+    "volume": "Volume",
     "muscleGroup": "Muscle Group",
     "equipment": "Equipment",
     "difficulty": "Difficulty",
@@ -224,7 +234,13 @@
     "bloodPressure": "Blood Pressure",
     "temperature": "Temperature",
     "taken": "Taken",
-    "skipped": "Skipped"
+    "skipped": "Skipped",
+    "poor": "Poor",
+    "fair": "Fair",
+    "good": "Good",
+    "excellent": "Excellent",
+    "avgWeek": "Avg week",
+    "lastMeasurement": "Last measurement"
   },
   "goals": {
     "goals": "Goals",
@@ -282,7 +298,16 @@
     "evening": "Evening",
     "weekly": "Weekly",
     "step": "Step",
-    "completed": "Completed"
+    "steps": "steps",
+    "minutes": "min",
+    "completed": "Completed",
+    "skincare": "Skincare",
+    "haircare": "Haircare",
+    "makeup": "Makeup",
+    "fragrance": "Fragrance",
+    "body": "Body",
+    "expiringSoon": "Expiring Soon",
+    "daysLeft": "days left"
   },
   "theme": {
     "light": "Light",
