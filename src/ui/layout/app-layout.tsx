@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/ui/components/button';
 import { CommandPalette } from '@/ui/components/command-palette';
+import { LocaleSync } from '@/ui/components/locale-sync';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -59,6 +60,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <LocaleSync />
       <CommandPalette />
       <div className="min-h-screen" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
         {/* Sidebar для десктопа */}

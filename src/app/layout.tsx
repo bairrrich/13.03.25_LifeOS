@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/ui/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "LifeOS",
-  description: "Система управления жизнью",
+  description: "Life management system",
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
           {children}
