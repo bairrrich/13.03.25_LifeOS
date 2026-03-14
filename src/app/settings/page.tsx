@@ -34,8 +34,13 @@ export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
 
   const [selectedTheme, setSelectedTheme] = React.useState(theme || 'system');
-  const [selectedLanguage, setSelectedLanguage] = React.useState(locale || 'en');
+  const [selectedLanguage, setSelectedLanguage] = React.useState('en');
   const [weekStartDay, setWeekStartDay] = React.useState('monday');
+
+  // Синхронизация с текущим языком
+  React.useEffect(() => {
+    setSelectedLanguage(locale || 'en');
+  }, [locale]);
 
   const handleThemeChange = (newTheme: string) => {
     setSelectedTheme(newTheme);
