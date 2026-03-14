@@ -5,7 +5,7 @@ import { X } from 'lucide-react';
 
 export interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'default' | 'success' | 'warning' | 'destructive' | 'info';
+  variant?: 'default' | 'success' | 'warning' | 'destructive' | 'info' | 'outline';
   size?: 'sm' | 'md';
   onRemove?: () => void;
   className?: string;
@@ -24,6 +24,7 @@ export function Badge({
     warning: 'bg-warning text-primary-foreground',
     destructive: 'bg-destructive text-destructive-foreground',
     info: 'bg-info text-primary-foreground',
+    outline: 'border border-input bg-background',
   };
 
   const sizes = {
