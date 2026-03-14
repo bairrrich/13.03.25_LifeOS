@@ -186,13 +186,13 @@ export default function NutritionPage() {
                         <div>
                           <p className="font-medium">{food.name}</p>
                           <p className="text-xs text-muted-foreground">
-                            {food.calories} kcal / {food.servingSize}g
+                            {food.calories} {t('units.kcal')} / {food.servingSize}{t('units.g')}
                           </p>
                         </div>
                         <div className="flex items-center gap-2">
                           <Input
                             type="number"
-                            placeholder="г"
+                            placeholder={t('units.g')}
                             className="w-20 h-8"
                             defaultValue={food.servingSize}
                           />
@@ -259,7 +259,7 @@ export default function NutritionPage() {
               <div className="text-2xl font-bold">{totalCalories}</div>
               <ProgressBar value={(totalCalories / DAILY_GOALS.calories) * 100} showLabel={false} className="mt-2" />
               <p className="text-xs text-muted-foreground mt-1">
-                из {DAILY_GOALS.calories} kcal
+                {t('dashboard.of')} {DAILY_GOALS.calories} {t('units.kcal')}
               </p>
             </CardContent>
           </Card>
@@ -324,9 +324,9 @@ export default function NutritionPage() {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="text-right">
-                        <p className="font-semibold">{mealCalories} kcal</p>
+                        <p className="font-semibold">{mealCalories} {t('units.kcal')}</p>
                         <p className="text-xs text-muted-foreground">
-                          P: {Math.round(mealProtein)}g • F: {Math.round(mealFat)}g • C: {Math.round(mealCarbs)}g
+                          P: {Math.round(mealProtein)}{t('units.g')} • F: {Math.round(mealFat)}{t('units.g')} • C: {Math.round(mealCarbs)}{t('units.g')}
                         </p>
                       </div>
                       <Button variant="ghost" size="icon" onClick={() => handleDeleteMeal(meal.id)}>
@@ -351,9 +351,9 @@ export default function NutritionPage() {
                           </div>
                           <div className="flex items-center gap-4">
                             <div className="text-right text-xs">
-                              <p className="font-medium">{entry.calories} kcal</p>
+                              <p className="font-medium">{entry.calories} {t('units.kcal')}</p>
                               <p className="text-muted-foreground">
-                                P: {entry.protein}g • F: {entry.fat}g • C: {entry.carbs}g
+                                P: {entry.protein}{t('units.g')} • F: {entry.fat}{t('units.g')} • C: {entry.carbs}{t('units.g')}
                               </p>
                             </div>
                             <Button
