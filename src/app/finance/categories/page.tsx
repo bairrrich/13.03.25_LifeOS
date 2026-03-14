@@ -188,7 +188,7 @@ export default function CategoriesPage() {
                       <CardTitle className="text-base">{category.name}</CardTitle>
                       <div className="flex items-center gap-2">
                         <Badge variant={category.type === 'income' ? 'success' : 'destructive'}>
-                          {category.type === 'income' ? 'Доход' : 'Расход'}
+                          {category.type === 'income' ? t('finance.income') : t('finance.expense')}
                         </Badge>
                       </div>
                     </div>

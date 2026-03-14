@@ -75,7 +75,12 @@ export default function BudgetsPage() {
   };
 
   const getPeriodLabel = (period: Budget['period']) => {
-    const labels = { daily: 'в день', weekly: 'в неделю', monthly: 'в месяц', yearly: 'в год' };
+    const labels = {
+      daily: t('finance.daily'),
+      weekly: t('finance.weekly'),
+      monthly: t('finance.monthly'),
+      yearly: t('finance.yearly')
+    };
     return labels[period];
   };
 
@@ -85,7 +90,7 @@ export default function BudgetsPage() {
       return (
         <Badge variant="destructive">
           <AlertCircle className="mr-1 h-3 w-3" />
-          Превышен
+          {t('finance.overBudget')}
         </Badge>
       );
     }
@@ -93,14 +98,14 @@ export default function BudgetsPage() {
       return (
         <Badge variant="warning">
           <AlertCircle className="mr-1 h-3 w-3" />
-          Почти всё
+          {t('finance.almostDone')}
         </Badge>
       );
     }
     return (
       <Badge variant="success">
         <CheckCircle2 className="mr-1 h-3 w-3" />
-        В норме
+        {t('finance.onTrack')}
       </Badge>
     );
   };
@@ -252,7 +257,7 @@ export default function BudgetsPage() {
                   />
                   <div className="flex items-center justify-between text-xs">
                     <span className={remaining >= 0 ? 'text-green-500' : 'text-destructive'}>
-                      {remaining >= 0 ? `Осталось: ${remaining.toFixed(0)} €` : `Превышено: ${Math.abs(remaining).toFixed(0)} €`}
+                      {remaining >= 0 ? `${t('finance.remaining')}: ${remaining.toFixed(0)} €` : `${t('finance.overBudget')}: ${Math.abs(remaining).toFixed(0)} €`}
                     </span>
                   </div>
                 </CardContent>
