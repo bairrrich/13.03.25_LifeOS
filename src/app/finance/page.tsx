@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import { AppLayout } from '@/ui/layout/app-layout';
 import { useTranslation } from '@/shared/lib/use-translation';
 import { Button } from '@/ui/components/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/ui/components/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/components/card';
 import { Input } from '@/ui/components/input';
 import { Select } from '@/ui/components/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogDescription } from '@/ui/components/dialog';
-import { Plus, Pencil, Trash2, TrendingUp, TrendingDown } from 'lucide-react';
+import { Plus, Pencil, Trash2, TrendingUp, TrendingDown, Wallet } from 'lucide-react';
 import { cn } from '@/shared/lib/cn';
+import Link from 'next/link';
 
 // Временные данные для демонстрации
 interface Transaction {
@@ -40,7 +41,7 @@ export default function FinancePage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
+
     const newTransaction: Transaction = {
       id: editingTransaction?.id || Date.now().toString(),
       amount: Number(formData.get('amount')),
@@ -173,6 +174,32 @@ export default function FinancePage() {
               <div className="text-2xl font-bold text-red-500">-{expenses.toFixed(2)} €</div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Quick Links */}
+        <div className="grid gap-4 md:grid-cols-2">
+          <Link href="/finance/accounts">
+            <Card className="hover:bg-accent transition-colors cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Wallet className="h-5 w-5" />
+                  {t('finance.accounts')}
+                </CardTitle>
+                <CardDescription>Управление счетами и картами</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+          <Link href="/finance/budgets">
+            <Card className="hover:bg-accent transition-colors cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <TrendingUp className="h-5 w-5" />
+                  {t('finance.budgets')}
+                </CardTitle>
+                <CardDescription>Контроль расходов по категориям</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
         </div>
 
         {/* Transactions List */}
