@@ -186,7 +186,8 @@
     "breakfast": "Завтрак",
     "lunch": "Обед",
     "dinner": "Ужин",
-    "snack": "Перекус"
+    "snack": "Перекус",
+    "searchFood": "Поиск продукта..."
   },
   "workouts": {
     "exercises": "Упражнения",
