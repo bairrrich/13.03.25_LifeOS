@@ -224,7 +224,7 @@ export default function GoalsPage() {
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{avgProgress}%</div>
+              <div className="text-2xl font-bold">{avgProgress}{t('units.percent')}</div>
             </CardContent>
           </Card>
         </div>
@@ -265,7 +265,7 @@ export default function GoalsPage() {
                         <span className="text-muted-foreground">
                           {goal.currentValue} / {goal.targetValue}
                         </span>
-                        <span className="font-medium">{Math.round(progress)}%</span>
+                        <span className="font-medium">{Math.round(progress)}{t('units.percent')}</span>
                       </div>
                       <ProgressBar value={progress} showLabel={false} />
                     </div>
