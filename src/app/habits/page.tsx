@@ -275,7 +275,7 @@ export default function HabitsPage() {
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{avgCompletion}%</div>
+              <div className="text-2xl font-bold">{avgCompletion}{t('units.percent')}</div>
             </CardContent>
           </Card>
           <Card>
@@ -390,7 +390,7 @@ export default function HabitsPage() {
                   <div className="space-y-1">
                     <div className="flex justify-between text-xs">
                       <span>{habit.completed} / {habit.target}</span>
-                      <span>{Math.round(progress)}%</span>
+                      <span>{Math.round(progress)}{t('units.percent')}</span>
                     </div>
                     <ProgressBar value={progress} showLabel={false} />
                   </div>
