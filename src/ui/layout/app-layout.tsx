@@ -7,6 +7,8 @@ import { cn } from '@/shared/lib/cn';
 import { Button } from '@/ui/components/button';
 import { CommandPalette } from '@/ui/components/command-palette';
 import { LocaleSync } from '@/ui/components/locale-sync';
+import { useToaster } from '@/ui/components/toaster';
+import { setNotificationCallback } from '@/shared/lib/notifications';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,6 +33,14 @@ import {
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { t, ready } = useTranslation();
+  const { addNotification } = useToaster();
+
+  // Регистрируем callback для уведомлений
+  React.useEffect(() => {
+    setNotificationCallback((data) => {
+      addNotification(data);
+    });
+  }, [addNotification]);
 
   // Навигация определяется внутри компонента для использования t()
   const navigation = [

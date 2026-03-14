@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/ui/components/theme-provider";
+import { ToasterProvider } from "@/ui/components/toaster";
 
 export const metadata: Metadata = {
   title: "LifeOS",
@@ -16,7 +17,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
-          {children}
+          <ToasterProvider>
+            {children}
+          </ToasterProvider>
         </ThemeProvider>
       </body>
     </html>

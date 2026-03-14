@@ -41,7 +41,10 @@ export function useTranslation(ns: string = 'common') {
       // Если ready=false, используем i18n напрямую для получения перевода
       if (!ready) {
         try {
-          const value = i18next.getResourceBundle(defaultLocale, ns);
+          // Получаем сохранённый язык или используем default
+          const stored = typeof window !== 'undefined' ? localStorage.getItem('lifeos-locale') : null;
+          const locale = (stored && locales.includes(stored as Locale)) ? stored as Locale : defaultLocale;
+          const value = i18next.getResourceBundle(locale, ns);
           const keys = key.split('.');
           let result: unknown = value;
           for (const k of keys) {

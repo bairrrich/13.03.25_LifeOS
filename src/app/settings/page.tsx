@@ -41,7 +41,7 @@ export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
 
   const [selectedTheme, setSelectedTheme] = React.useState(theme || 'system');
-  const [selectedLanguage, setSelectedLanguage] = React.useState('en');
+  const [selectedLanguage, setSelectedLanguage] = React.useState(locale);
   const [weekStartDay, setWeekStartDay] = React.useState('monday');
   const [selectedCurrency, setSelectedCurrency] = React.useState('EUR');
 
