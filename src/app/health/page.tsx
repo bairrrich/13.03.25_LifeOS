@@ -112,7 +112,7 @@ export default function HealthPage() {
                   <DialogDescription>{t('health.sleepLog')}</DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleAddSleep} className="space-y-4">
-                  <Input name="hours" type="number" step="0.5" label={`${t('health.duration')} (часы)`} required />
+                  <Input name="hours" type="number" step="0.5" label={`${t('health.duration')} (${t('units.hours')})`} required />
                   <select name="quality" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
                     <option value="poor">😴 {t('health.poor')}</option>
                     <option value="fair">😐 {t('health.fair')}</option>
@@ -141,8 +141,8 @@ export default function HealthPage() {
                   <DialogDescription>{t('health.weightLog')}</DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleAddWeight} className="space-y-4">
-                  <Input name="weight" type="number" step="0.1" label={`${t('health.weight')} (кг)`} required />
-                  <Input name="bodyFat" type="number" step="0.1" label={`${t('health.bodyFat')} (%)`} />
+                  <Input name="weight" type="number" step="0.1" label={`${t('health.weight')} (${t('units.kg')})`} required />
+                  <Input name="bodyFat" type="number" step="0.1" label={`${t('health.bodyFat')} (${t('units.percent')})`} />
                   <DialogFooter>
                     <Button type="button" variant="ghost" onClick={() => setIsWeightDialogOpen(false)}>
                       {t('common.cancel')}
@@ -163,7 +163,7 @@ export default function HealthPage() {
               <Moon className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{avgSleep} ч</div>
+              <div className="text-2xl font-bold">{avgSleep} {t('units.hours')}</div>
               <p className="text-xs text-muted-foreground">{t('health.avgWeek')}</p>
             </CardContent>
           </Card>
@@ -173,9 +173,9 @@ export default function HealthPage() {
               <Scale className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{currentWeight} кг</div>
+              <div className="text-2xl font-bold">{currentWeight} {t('units.kg')}</div>
               <p className="text-xs text-muted-foreground">
-                {Number(weightChange) >= 0 ? '+' : ''}{weightChange} кг
+                {Number(weightChange) >= 0 ? '+' : ''}{weightChange} {t('units.kg')}
               </p>
             </CardContent>
           </Card>
@@ -185,7 +185,7 @@ export default function HealthPage() {
               <Activity className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{weightLogs[0]?.bodyFat || '-'}%</div>
+              <div className="text-2xl font-bold">{weightLogs[0]?.bodyFat || '-'}{t('units.percent')}</div>
               <p className="text-xs text-muted-foreground">{t('health.lastMeasurement')}</p>
             </CardContent>
           </Card>
@@ -208,7 +208,7 @@ export default function HealthPage() {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{getQualityEmoji(log.quality)}</span>
                     <div>
-                      <p className="font-medium">{log.hours} ч</p>
+                      <p className="font-medium">{log.hours} {t('units.hours')}</p>
                       <p className="text-xs text-muted-foreground">{formatDate(log.date)}</p>
                     </div>
                   </div>
@@ -234,12 +234,12 @@ export default function HealthPage() {
               {weightLogs.map((log) => (
                 <div key={log.id} className="flex items-center justify-between p-3 rounded-lg border">
                   <div>
-                    <p className="font-medium">{log.weight} кг</p>
+                    <p className="font-medium">{log.weight} {t('units.kg')}</p>
                     <p className="text-xs text-muted-foreground">{formatDate(log.date)}</p>
                   </div>
                   {log.bodyFat && (
                     <div className="text-right">
-                      <p className="text-sm font-medium">{log.bodyFat}%</p>
+                      <p className="text-sm font-medium">{log.bodyFat}{t('units.percent')}</p>
                       <p className="text-xs text-muted-foreground">{t('health.bodyFat')}</p>
                     </div>
                   )}
