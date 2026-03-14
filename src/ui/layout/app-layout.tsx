@@ -87,14 +87,6 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               );
             })}
           </nav>
-          <div className="absolute bottom-4 left-4 right-4">
-            <Link href="/settings">
-              <Button variant="ghost" className="w-full justify-start gap-2">
-                <Settings className="h-4 w-4" />
-                {t('nav.settings')}
-              </Button>
-            </Link>
-          </div>
         </aside>
 
         {/* Основной контент */}
