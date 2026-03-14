@@ -10,9 +10,8 @@ import { Textarea } from '@/ui/components/textarea';
 import { Select } from '@/ui/components/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogDescription } from '@/ui/components/dialog';
 import { Plus, Target, TrendingUp, Trash2, Pencil, CheckCircle2 } from 'lucide-react';
-import { ProgressBar } from '@/ui/components/progress-bar';
 import { Badge } from '@/ui/components/badge';
-import { cn } from '@/shared/lib/cn';
+import { ProgressBar } from '@/ui/components/progress-bar';
 
 interface Goal {
   id: string;
@@ -39,14 +38,14 @@ export default function GoalsPage() {
 
   const activeGoals = goals.filter(g => g.status === 'active').length;
   const completedGoals = goals.filter(g => g.status === 'completed').length;
-  const avgProgress = goals.length > 0 
+  const avgProgress = goals.length > 0
     ? Math.round(goals.reduce((sum, g) => sum + (g.currentValue / g.targetValue) * 100, 0) / goals.length)
     : 0;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
+
     const newGoal: Goal = {
       id: editingGoal?.id || Date.now().toString(),
       name: formData.get('name') as string,
@@ -91,12 +90,12 @@ export default function GoalsPage() {
   };
 
   const getStatusBadge = (status: Goal['status']) => {
-    const variants = {
+    const variants: Record<string, 'default' | 'success' | 'warning' | 'destructive' | 'outline'> = {
       active: 'default',
       completed: 'success',
       paused: 'warning',
       abandoned: 'destructive',
-    } as const;
+    };
 
     return (
       <Badge variant={variants[status]}>
@@ -241,7 +240,7 @@ export default function GoalsPage() {
           ) : (
             goals.map((goal) => {
               const progress = Math.min((goal.currentValue / goal.targetValue) * 100, 100);
-              
+
               return (
                 <Card key={goal.id}>
                   <CardHeader className="pb-2">
