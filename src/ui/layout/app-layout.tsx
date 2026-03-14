@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/ui/components/button';
-import { ThemeSwitcher } from '@/ui/components/theme-switcher';
-import { LanguageSwitcher } from '@/ui/components/language-switcher';
 import { CommandPalette } from '@/ui/components/command-palette';
 import { useTranslation } from '@/shared/lib/use-translation';
 import {
@@ -58,10 +56,6 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             <Link href="/" className="text-lg font-semibold" style={{ color: 'var(--foreground)' }}>
               LifeOS
             </Link>
-            <div className="flex items-center gap-2">
-              <LanguageSwitcher />
-              <ThemeSwitcher />
-            </div>
           </div>
           <nav className="space-y-1 p-4">
             {navigation.map((item) => {
@@ -95,14 +89,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         {/* Основной контент */}
         <main className="md:pl-64">
           {/* Header для мобильных */}
-          <header className="sticky top-0 z-10 flex h-14 items-center justify-between gap-4 border-b border-border px-4 backdrop-blur md:hidden" style={{ background: 'var(--background)' }}>
+          <header className="sticky top-0 z-10 flex h-14 items-center justify-between border-b border-border px-4 backdrop-blur md:hidden" style={{ background: 'var(--background)' }}>
             <Link href="/" className="text-lg font-semibold" style={{ color: 'var(--foreground)' }}>
               LifeOS
             </Link>
-            <div className="flex items-center gap-1">
-              <LanguageSwitcher />
-              <ThemeSwitcher />
-            </div>
           </header>
 
           {/* Контент страницы */}
