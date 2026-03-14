@@ -138,12 +138,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 variant="ghost"
                 size="icon"
                 className={cn(
-                  'w-full flex-col gap-1 rounded-none p-2 text-xs',
+                  'w-full flex-col gap-1 rounded-none p-2',
                   moreNavigation.some(item => pathname === item.href) && 'text-primary'
                 )}
               >
                 <span className="text-xl font-bold leading-none">⋮</span>
-                <span className="text-[10px]" style={{ color: 'var(--foreground)' }}>{t('common.more')}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-48">
