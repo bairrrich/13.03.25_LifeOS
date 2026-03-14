@@ -156,8 +156,8 @@ All colors use OKLCH color space for perceptual uniformity.
 ## 🌐 Internationalization
 
 ### Supported Languages
-- **ru** — Russian (default)
-- **en** — English
+- **ru** — Russian 
+- **en** — English (default)
 
 ### Translation Keys: 386+
 - common: 40 keys
