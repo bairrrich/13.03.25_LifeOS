@@ -38,7 +38,10 @@ export function useTranslation(ns: string = 'common') {
 
   const t = useCallback(
     (key: string, defaultValue?: string) => {
-      if (!ready) return key;
+      if (!ready) {
+        // Возвращаем ключ если переводы ещё не готовы
+        return defaultValue !== undefined ? defaultValue : key;
+      }
 
       const keys = key.split('.');
       const resource = i18next.getResourceBundle(currentLocale, ns);
@@ -48,11 +51,11 @@ export function useTranslation(ns: string = 'common') {
         if (value && typeof value === 'object') {
           value = (value as Record<string, unknown>)[k];
         } else {
-          return defaultValue || key;
+          return defaultValue !== undefined ? defaultValue : key;
         }
       }
 
-      return typeof value === 'string' ? value : defaultValue || key;
+      return typeof value === 'string' ? value : defaultValue !== undefined ? defaultValue : key;
     },
     [ready, currentLocale, ns]
   );

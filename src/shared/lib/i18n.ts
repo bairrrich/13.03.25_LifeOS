@@ -42,6 +42,7 @@ if (typeof window !== 'undefined') {
     react: {
       useSuspense: false,
     },
+    preload: locales, // Предзагружаем все языки
   });
 }
 
