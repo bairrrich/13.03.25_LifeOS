@@ -48,33 +48,33 @@ const mockStats = {
   },
 };
 
-const weeklyData = [
-  { day: 'Пн', expenses: 320, calories: 2200, workouts: 1 },
-  { day: 'Вт', expenses: 180, calories: 2400, workouts: 0 },
-  { day: 'Ср', expenses: 450, calories: 2100, workouts: 1 },
-  { day: 'Чт', expenses: 290, calories: 2300, workouts: 1 },
-  { day: 'Пт', expenses: 520, calories: 2500, workouts: 0 },
-  { day: 'Сб', expenses: 380, calories: 2000, workouts: 1 },
-  { day: 'Вс', expenses: 200, calories: 2100, workouts: 0 },
-];
-
-const categoryData = [
-  { name: 'Еда', value: 850, color: '#22c55e' },
-  { name: 'Транспорт', value: 320, color: '#3b82f6' },
-  { name: 'Развлечения', value: 450, color: '#a855f7' },
-  { name: 'Покупки', value: 720, color: '#f97316' },
-];
-
-const habitsData = [
-  { name: 'Чтение', completed: 25, target: 30 },
-  { name: 'Спорт', completed: 18, target: 20 },
-  { name: 'Вода', completed: 28, target: 30 },
-  { name: 'Медитация', completed: 15, target: 30 },
-];
-
 export default function DashboardPage() {
   const { t } = useTranslation();
   const [period, setPeriod] = useState<'week' | 'month'>('week');
+
+  const weeklyData = [
+    { day: t('dashboard.mon'), expenses: 320, calories: 2200, workouts: 1 },
+    { day: t('dashboard.tue'), expenses: 180, calories: 2400, workouts: 0 },
+    { day: t('dashboard.wed'), expenses: 450, calories: 2100, workouts: 1 },
+    { day: t('dashboard.thu'), expenses: 290, calories: 2300, workouts: 1 },
+    { day: t('dashboard.fri'), expenses: 520, calories: 2500, workouts: 0 },
+    { day: t('dashboard.sat'), expenses: 380, calories: 2000, workouts: 1 },
+    { day: t('dashboard.sun'), expenses: 200, calories: 2100, workouts: 0 },
+  ];
+
+  const categoryData = [
+    { name: t('dashboard.catFood'), value: 850, color: '#22c55e' },
+    { name: t('dashboard.catTransport'), value: 320, color: '#3b82f6' },
+    { name: t('dashboard.catEntertainment'), value: 450, color: '#a855f7' },
+    { name: t('dashboard.catShopping'), value: 720, color: '#f97316' },
+  ];
+
+  const habitsData = [
+    { name: t('dashboard.habitReading'), completed: 25, target: 30 },
+    { name: t('dashboard.habitSport'), completed: 18, target: 20 },
+    { name: t('dashboard.habitWater'), completed: 28, target: 30 },
+    { name: t('dashboard.habitMeditation'), completed: 15, target: 30 },
+  ];
 
   return (
     <AppLayout>
@@ -147,7 +147,7 @@ export default function DashboardPage() {
             <CardContent>
               <div className="text-2xl font-bold">{mockStats.workouts.completed}</div>
               <p className="text-xs text-muted-foreground">
-                {mockStats.workouts.hours} часов за неделю
+                {mockStats.workouts.hours} {t('dashboard.hoursWeek')}
               </p>
               <div className="flex items-center gap-1 text-xs mt-1">
                 <Award className="h-3 w-3 text-orange-500" />
@@ -164,9 +164,9 @@ export default function DashboardPage() {
             <CardContent>
               <div className="text-2xl font-bold">{mockStats.health.sleep}h</div>
               <p className="text-xs text-muted-foreground">
-                в среднем за ночь
+                {t('dashboard.avgNight')}
               </p>
-              <Badge variant="success" className="mt-1">Норма</Badge>
+              <Badge variant="success" className="mt-1">{t('dashboard.normal')}</Badge>
             </CardContent>
           </Card>
 
@@ -178,7 +178,7 @@ export default function DashboardPage() {
             <CardContent>
               <div className="text-2xl font-bold">45 мин</div>
               <p className="text-xs text-muted-foreground">
-                сегодня
+                {t('dashboard.today')}
               </p>
               <div className="flex items-center gap-1 text-xs mt-1">
                 <TrendingUp className="h-3 w-3 text-green-500" />
@@ -253,8 +253,8 @@ export default function DashboardPage() {
           {/* Expenses Chart */}
           <Card>
             <CardHeader>
-              <CardTitle>Расходы за неделю</CardTitle>
-              <CardDescription>Ежедневные расходы</CardDescription>
+              <CardTitle>{t('dashboard.weeklyExpenses')}</CardTitle>
+              <CardDescription>{t('dashboard.dailyExpenses')}</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={250}>
@@ -272,8 +272,8 @@ export default function DashboardPage() {
           {/* Categories Chart */}
           <Card>
             <CardHeader>
-              <CardTitle>Категории расходов</CardTitle>
-              <CardDescription>Распределение по категориям</CardDescription>
+              <CardTitle>{t('dashboard.expenseCategories')}</CardTitle>
+              <CardDescription>{t('dashboard.categoryDistribution')}</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={250}>
@@ -302,8 +302,8 @@ export default function DashboardPage() {
         {/* Habits Progress */}
         <Card>
           <CardHeader>
-            <CardTitle>{t('habits.progress')}</CardTitle>
-            <CardDescription>{t('habits.monthlyProgress')}</CardDescription>
+            <CardTitle>{t('dashboard.habitsProgress')}</CardTitle>
+            <CardDescription>{t('dashboard.monthlyProgress')}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
