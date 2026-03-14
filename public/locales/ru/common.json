@@ -494,5 +494,28 @@
     "errorUpdate": "Не удалось обновить правило",
     "errorDelete": "Не удалось удалить правило",
     "errorLoad": "Не удалось загрузить правила"
+  },
+  "notifications": {
+    "title": "Уведомления",
+    "markAllRead": "Все проч.",
+    "markRead": "Прочитано",
+    "dismiss": "Закрыть",
+    "clearRead": "Очистить проч.",
+    "clearAll": "Все",
+    "noNotifications": "Нет уведомлений",
+    "justNow": "Только что",
+    "minutesAgo": "{minutes} мин. назад",
+    "hoursAgo": "{hours} ч. назад",
+    "daysAgo": "{days} дн. назад",
+    "settings": {
+      "title": "Уведомления",
+      "enabled": "Включены",
+      "showInApp": "В приложении",
+      "sound": "Звук",
+      "desktop": "Desktop",
+      "position": "Позиция",
+      "autoClose": "Автозакрытие",
+      "maxVisible": "Макс. видимых"
+    }
   }
 }

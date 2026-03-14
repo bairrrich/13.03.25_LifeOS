@@ -1,7 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { Toast, type Notification } from '@/ui/components/toast';
+import { notificationService } from '@/core/notifications';
+import type { Notification } from '@/core/notifications';
 
 interface ToasterContextType {
   notifications: Notification[];
@@ -24,57 +25,52 @@ export function useToaster() {
 }
 
 export function ToasterProvider({ children }: { children: React.ReactNode }) {
-  const [notifications, setNotifications] = React.useState<Notification[]>([]);
+  const { toasts, removeToast, toast, ToastContainer: Container } = useToast();
+  const [, setNotifications] = React.useState<Notification[]>([]);
+
+  // Подписка на уведомления из notification service
+  React.useEffect(() => {
+    const handleToast = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      const notification = customEvent.detail as {
+        type: 'info' | 'success' | 'warning' | 'error';
+        title: string;
+        message: string;
+        autoClose?: number;
+      };
+
+      const typeMap = {
+        info: toast.info,
+        success: toast.success,
+        warning: toast.warning,
+        error: toast.error,
+      };
+
+      typeMap[notification.type](
+        notification.title,
+        notification.message,
+        notification.autoClose
+      );
+    };
+
+    window.addEventListener('lifeos-toast', handleToast);
+    return () => window.removeEventListener('lifeos-toast', handleToast);
+  }, [toast]);
 
   const addNotification = React.useCallback((notification: Omit<Notification, 'id'>) => {
-    const id = Math.random().toString(36).substring(2, 9);
-    const newNotification: Notification = { id, ...notification };
-    setNotifications((prev) => [...prev, newNotification]);
-    return id;
+    return notificationService.create(notification as never);
   }, []);
 
   const dismissNotification = React.useCallback((id: string) => {
-    setNotifications((prev) => prev.filter((n) => n.id !== id));
+    notificationService.dismiss(id);
   }, []);
-
-  const success = React.useCallback(
-    (title: string, message?: string) =>
-      addNotification({ type: 'success', title, message }),
-    [addNotification]
-  );
-
-  const error = React.useCallback(
-    (title: string, message?: string) =>
-      addNotification({ type: 'error', title, message }),
-    [addNotification]
-  );
-
-  const warning = React.useCallback(
-    (title: string, message?: string) =>
-      addNotification({ type: 'warning', title, message }),
-    [addNotification]
-  );
-
-  const info = React.useCallback(
-    (title: string, message?: string) =>
-      addNotification({ type: 'info', title, message }),
-    [addNotification]
-  );
 
   return (
     <ToasterContext.Provider
-      value={{ notifications, addNotification, dismissNotification, success, error, warning, info }}
+      value={{ notifications: [], addNotification, dismissNotification, success: () => '', error: () => '', warning: () => '', info: () => '' }}
     >
       {children}
-      <div className="fixed top-4 right-4 z-50 flex flex-col gap-2">
-        {notifications.map((notification) => (
-          <Toast
-            key={notification.id}
-            notification={notification}
-            onDismiss={dismissNotification}
-          />
-        ))}
-      </div>
+      <Container />
     </ToasterContext.Provider>
   );
 }

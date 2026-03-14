@@ -8,6 +8,7 @@ import { Button } from '@/ui/components/button';
 import { CommandPalette } from '@/ui/components/command-palette';
 import { LocaleSync } from '@/ui/components/locale-sync';
 import { useToaster } from '@/ui/components/toaster';
+import { NotificationCenter } from '@/ui/components/notification-center';
 import { setNotificationCallback } from '@/shared/lib/notifications';
 import {
   DropdownMenu,
@@ -36,12 +37,21 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const { t, ready } = useTranslation();
   const { addNotification } = useToaster();
 
-  // Регистрируем callback для уведомлений
+  // Регистрируем callback для уведомлений (только один раз при монтировании)
   React.useEffect(() => {
-    setNotificationCallback((data) => {
-      addNotification(data);
+    const unsubscribe = setNotificationCallback((data) => {
+      addNotification({
+        type: data.type,
+        priority: data.type === 'error' ? 'high' : 'medium',
+        title: data.title,
+        message: data.message || '',
+        autoClose: data.duration,
+      } as never);
     });
-  }, [addNotification]);
+
+    return unsubscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Пустой массив - подписка только один раз
 
   // Навигация определяется внутри компонента для использования t()
   const navigation = [
@@ -81,6 +91,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             <Link href="/" className="text-lg font-semibold" style={{ color: 'var(--foreground)' }}>
               LifeOS
             </Link>
+            <NotificationCenter />
           </div>
           <nav className="space-y-1 p-4">
             {navigation.map((item) => {

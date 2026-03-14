@@ -129,3 +129,20 @@ export {
   type TemplateVariables,
   type BuiltInOperator,
 } from './automation';
+
+// Notifications
+export {
+  notificationService,
+  notify,
+  notifyTypes,
+  NotificationService,
+  type Notification,
+  type NotificationType,
+  type NotificationPriority,
+  type NotificationSettings,
+  type NotificationFilter,
+  type NotificationStats,
+  type CreateNotificationInput,
+  type NotificationActionCallback,
+  type NotificationTemplates,
+} from './notifications';

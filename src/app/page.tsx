@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { AppLayout } from '@/ui/layout/app-layout';
 import { useTranslation } from '@/shared/lib/use-translation';
 import { useCurrency } from '@/shared/lib/use-currency';
-import { useToaster } from '@/ui/components/toaster';
-import { notifySuccess, notifyError, notifyWarning, notifyInfo } from '@/shared/lib/notifications';
 import { Button } from '@/ui/components/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/components/card';
 import { Badge } from '@/ui/components/badge';
@@ -15,8 +13,8 @@ import {
   TrendingUp, TrendingDown, DollarSign, Target, Award, Calendar
 } from 'lucide-react';
 import {
-  LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
-  XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+  LineChart, BarChart, Bar, PieChart, Pie, Cell,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 
 // Mock данные для демонстрации
@@ -53,17 +51,8 @@ const mockStats = {
 
 export default function DashboardPage() {
   const { t } = useTranslation();
-  const { formatCurrency, symbol } = useCurrency();
-  const { addNotification } = useToaster();
+  const { formatCurrency } = useCurrency();
   const [period, setPeriod] = useState<'week' | 'month'>('week');
-
-  // Тестовые уведомления
-  const showTestNotifications = () => {
-    notifySuccess('Успех!', 'Операция выполнена успешно');
-    setTimeout(() => notifyError('Ошибка', 'Что-то пошло не так'), 1000);
-    setTimeout(() => notifyWarning('Предупреждение', 'Внимание!'), 2000);
-    setTimeout(() => notifyInfo('Инфо', 'Полезная информация'), 3000);
-  };
 
   const weeklyData = [
     { day: t('dashboard.mon'), expenses: 320, calories: 2200, workouts: 1 },
@@ -112,13 +101,6 @@ export default function DashboardPage() {
               onClick={() => setPeriod('month')}
             >
               {t('habits.monthly')}
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={showTestNotifications}
-            >
-              🔔 Test
             </Button>
           </div>
         </div>

@@ -111,12 +111,36 @@ src/
 - [x] Weekly/Monthly toggle
 - [x] Quick actions
 
+**Phase 5: Automation System**
+- [x] Automation Engine (rule engine, triggers, conditions, actions)
+- [x] Scheduler (cron, condition checking)
+- [x] Automation Service (CRUD, persistence)
+- [x] Event Integration
+- [x] UI Components (rule card, form, list, logs table, stats)
+- [x] Automation Page (/automation)
+- [x] Full localization (RU/EN)
+
+**Phase 6: Notifications System**
+- [x] Notification Service (queue, settings, persistence)
+- [x] Toast Component (4 types, animations)
+- [x] Notification Center (dropdown panel)
+- [x] Desktop Notifications
+- [x] Sound Notifications
+- [x] Templates (finance, habits, goals, automation)
+- [x] Full localization (RU/EN)
+
+**Phase 7: Unit Tests**
+- [x] Jest + React Testing Library setup
+- [x] Notification Service tests (23 tests)
+- [x] Automation Engine tests (29 tests)
+- [x] Toast Component tests (10 tests)
+- [x] Testing documentation
+
 ### 🔄 In Progress
-- [ ] Automation System
+- [ ] Integration Tests (Playwright)
 - [ ] AI Assistant
-- [ ] Notifications System
-- [ ] Unit/Integration Tests
 - [ ] PWA Support
+- [ ] Data Export/Import
 
 ---
 
@@ -255,20 +279,26 @@ npm run dev          # Start dev server
 npm run build        # Production build
 npm run start        # Start production server
 npm run lint         # ESLint check
+npm test             # Run all tests
+npm run test:watch   # Watch mode
+npm run test:coverage # Coverage report
+npm run test:ci      # CI mode
 ```
 
 ---
 
 ## 📈 Metrics
 
-- **Pages:** 20+
-- **UI Components:** 15+
+- **Pages:** 21+
+- **UI Components:** 25+
 - **CRUD Operations:** 32+
-- **Translation Keys:** 386
-- **Database Tables:** 40+
+- **Translation Keys:** 500+
+- **Database Tables:** 42+
 - **Business Modules:** 8
-- **Core Systems:** 6
-- **Test Coverage:** 0% (TODO)
+- **Core Systems:** 8 (Entity, Database, CRUD, Query, Events, Sync, Automation, Notifications)
+- **Test Suites:** 3
+- **Unit Tests:** 62
+- **Test Coverage:** 62+ tests passing
 
 ---
 
@@ -285,6 +315,22 @@ npm run lint         # ESLint check
 - Type-ahead results
 - Filter by type
 - Instant results
+
+### Automation System
+- Create automation rules with triggers, conditions, actions
+- Event-based triggers (transaction.created, habit.completed, etc.)
+- Schedule triggers (cron expressions)
+- 10+ action types (create/update/delete entity, notifications, webhooks)
+- Rule priority and cooldown
+- Execution logs and statistics
+
+### Notifications System
+- Toast notifications (4 types: info, success, warning, error)
+- Notification Center in header
+- Desktop notifications
+- Sound notifications
+- Notification templates
+- Settings persistence
 
 ### Settings
 - Theme selection (light/dark/system)
@@ -307,26 +353,33 @@ npm run lint         # ESLint check
 - ✅ Mobile navigation with More button
 - ✅ All module pages completed
 
+### 2026-03-14 (continued)
+- ✅ Automation System fully implemented
+- ✅ Notifications System fully implemented
+- ✅ Unit Tests setup (Jest + RTL)
+- ✅ 62 unit tests passing
+- ✅ Testing documentation created
+
 ---
 
 ## 🎯 Next Steps
 
 ### High Priority
-1. [ ] Automation System (rules & triggers)
+1. [ ] Integration Tests (Playwright)
 2. [ ] AI Assistant (analysis & recommendations)
-3. [ ] Notifications System
+3. [ ] PWA Support
 
 ### Medium Priority
-4. [ ] Unit Tests (Jest + RTL)
-5. [ ] Integration Tests (Playwright)
-6. [ ] PWA Support
+4. [ ] Data Export/Import
+5. [ ] Analytics Dashboard
+6. [ ] More UI component tests
 
 ### Low Priority
 7. [ ] Supabase Sync
-8. [ ] Data Export/Import
-9. [ ] Analytics Dashboard
+8. [ ] Push Notifications (Service Worker)
+9. [ ] Mobile App (React Native)
 
 ---
 
 **Last Updated:** 2026-03-14
-**Version:** 0.1.0 (MVP Complete)
+**Version:** 0.2.0 (Automation + Notifications + Tests Complete)
