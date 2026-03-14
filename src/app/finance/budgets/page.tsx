@@ -205,7 +205,7 @@ export default function BudgetsPage() {
                 <CardTitle className="text-destructive">{t('finance.overBudget')}</CardTitle>
               </div>
               <CardDescription>
-                {overBudget} бюджет(а) превышены
+                {overBudget} {t('finance.budgetsOver')}
               </CardDescription>
             </CardHeader>
           </Card>

@@ -62,7 +62,13 @@
     "subtitle": "Начните добавлять данные в модулях",
     "dailySummary": "Ежедневная сводка",
     "weeklyProgress": "Недельный прогресс",
-    "monthlyStats": "Месячная статистика"
+    "monthlyStats": "Месячная статистика",
+    "quickActions": "Быстрые действия",
+    "frequentActions": "Частые операции",
+    "weeklyExpenses": "Расходы за неделю",
+    "expenseCategories": "Категории расходов",
+    "habitsProgress": "Прогресс привычек",
+    "monthlyProgress": "Выполнение за этот месяц"
   },
   "finance": {
     "accounts": "Счета",
@@ -75,6 +81,7 @@
     "balance": "Баланс",
     "totalBalance": "Общий баланс",
     "addAccount": "Добавить счёт",
+    "transaction": "Транзакция",
     "addTransaction": "Добавить транзакцию",
     "addBudget": "Добавить бюджет",
     "accountName": "Название счёта",
@@ -109,7 +116,14 @@
     "expenses": "Расходы",
     "categoryStats": "Статистика",
     "incomeCategories": "Категории доходов",
-    "expenseCategories": "Категории расходов"
+    "expenseCategories": "Категории расходов",
+    "manageAccounts": "Управление счетами и картами",
+    "trackExpenses": "Контроль расходов по категориям",
+    "manageCategories": "Управление категориями",
+    "editCategory": "Редактировать категорию",
+    "createCategory": "Создать новую категорию",
+    "budgetAmount": "Бюджет: {amount} €",
+    "budgetsOver": "бюджет(а) превышено"
   },
   "habits": {
     "streak": "Серия",
@@ -132,6 +146,7 @@
   "nutrition": {
     "foods": "Продукты",
     "meals": "Приёмы пищи",
+    "meal": "Приём пищи",
     "recipes": "Рецепты",
     "addFood": "Добавить продукт",
     "addMeal": "Добавить приём пищи",
@@ -153,6 +168,8 @@
   "workouts": {
     "exercises": "Упражнения",
     "workouts": "Тренировки",
+    "workout": "Тренировка",
+    "streak": "дней серия",
     "sets": "Подходы",
     "addWorkout": "Добавить тренировку",
     "addExercise": "Добавить упражнение",

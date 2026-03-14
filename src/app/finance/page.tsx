@@ -185,7 +185,7 @@ export default function FinancePage() {
                   <Wallet className="h-5 w-5" />
                   {t('finance.accounts')}
                 </CardTitle>
-                <CardDescription>Управление счетами и картами</CardDescription>
+                <CardDescription>{t('finance.manageAccounts')}</CardDescription>
               </CardHeader>
             </Card>
           </Link>
@@ -196,7 +196,7 @@ export default function FinancePage() {
                   <TrendingUp className="h-5 w-5" />
                   {t('finance.budgets')}
                 </CardTitle>
-                <CardDescription>Контроль расходов по категориям</CardDescription>
+                <CardDescription>{t('finance.trackExpenses')}</CardDescription>
               </CardHeader>
             </Card>
           </Link>

@@ -97,7 +97,7 @@ export default function CategoriesPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">{t('finance.categories')}</h1>
-            <p className="text-muted-foreground">Управление категориями</p>
+            <p className="text-muted-foreground">{t('finance.manageCategories')}</p>
           </div>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
@@ -109,14 +109,14 @@ export default function CategoriesPage() {
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>
-                  {editingCategory ? t('common.edit') : 'Новая категория'}
+                  {editingCategory ? t('common.edit') : t('common.add')}
                 </DialogTitle>
                 <DialogDescription>
-                  {editingCategory ? 'Редактировать категорию' : 'Создать новую категорию'}
+                  {editingCategory ? t('finance.editCategory') : t('finance.createCategory')}
                 </DialogDescription>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <Input name="name" label="Название" defaultValue={editingCategory?.name} required />
+                <Input name="name" label={t('mind.title')} defaultValue={editingCategory?.name} required />
                 <div className="grid gap-4 md:grid-cols-2">
                   <select
                     name="type"
@@ -206,7 +206,7 @@ export default function CategoriesPage() {
               <CardContent>
                 {category.budget && (
                   <div className={`text-sm ${getColorClass(category.color)} px-2 py-1 rounded inline-block`}>
-                    Бюджет: {category.budget} €
+                    {t('finance.budgetAmount').replace('{amount}', category.budget.toString())}
                   </div>
                 )}
               </CardContent>

@@ -151,7 +151,7 @@ export default function DashboardPage() {
               </p>
               <div className="flex items-center gap-1 text-xs mt-1">
                 <Award className="h-3 w-3 text-orange-500" />
-                <span>{mockStats.workouts.streak} дней серия</span>
+                <span>{mockStats.workouts.streak} {t('workouts.streak')}</span>
               </div>
             </CardContent>
           </Card>
@@ -302,8 +302,8 @@ export default function DashboardPage() {
         {/* Habits Progress */}
         <Card>
           <CardHeader>
-            <CardTitle>Прогресс привычек</CardTitle>
-            <CardDescription>Выполнение за этот месяц</CardDescription>
+            <CardTitle>{t('habits.progress')}</CardTitle>
+            <CardDescription>{t('habits.monthlyProgress')}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -328,34 +328,34 @@ export default function DashboardPage() {
         {/* Quick Actions */}
         <Card>
           <CardHeader>
-            <CardTitle>Быстрые действия</CardTitle>
-            <CardDescription>Частые операции</CardDescription>
+            <CardTitle>{t('dashboard.quickActions')}</CardTitle>
+            <CardDescription>{t('dashboard.frequentActions')}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid gap-2 md:grid-cols-3">
               <Button variant="outline" className="justify-start">
                 <Plus className="mr-2 h-4 w-4" />
-                Транзакция
+                {t('finance.transaction')}
               </Button>
               <Button variant="outline" className="justify-start">
                 <CheckCircle2 className="mr-2 h-4 w-4" />
-                Завершить привычку
+                {t('habits.markComplete')}
               </Button>
               <Button variant="outline" className="justify-start">
                 <Utensils className="mr-2 h-4 w-4" />
-                Приём пищи
+                {t('nutrition.meal')}
               </Button>
               <Button variant="outline" className="justify-start">
                 <Dumbbell className="mr-2 h-4 w-4" />
-                Тренировка
+                {t('workouts.workout')}
               </Button>
               <Button variant="outline" className="justify-start">
                 <Moon className="mr-2 h-4 w-4" />
-                Записать сон
+                {t('health.sleepLog')}
               </Button>
               <Button variant="outline" className="justify-start">
                 <Scale className="mr-2 h-4 w-4" />
-                Записать вес
+                {t('health.weightLog')}
               </Button>
             </div>
           </CardContent>
