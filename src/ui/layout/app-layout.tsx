@@ -143,7 +143,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     moreNavigation.some(item => pathname === item.href) && 'text-primary'
                   )}
                 >
-                  <span className="text-xl font-bold leading-none">⋮</span>
+                  <span className="text-lg font-semibold leading-none">···</span>
+                  <span className="text-[10px]" style={{ color: 'var(--foreground)' }}>{t('common.more')}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center" className="w-48">
