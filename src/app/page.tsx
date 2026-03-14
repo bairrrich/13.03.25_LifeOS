@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { AppLayout } from '@/ui/layout/app-layout';
 import { useTranslation } from '@/shared/lib/use-translation';
+import { useCurrency } from '@/shared/lib/use-currency';
 import { Button } from '@/ui/components/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/components/card';
 import { Badge } from '@/ui/components/badge';
@@ -50,6 +51,7 @@ const mockStats = {
 
 export default function DashboardPage() {
   const { t } = useTranslation();
+  const { formatCurrency, symbol } = useCurrency();
   const [period, setPeriod] = useState<'week' | 'month'>('week');
 
   const weeklyData = [
@@ -111,7 +113,7 @@ export default function DashboardPage() {
               <Wallet className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{mockStats.finance.expenses} {t('units.eur')}</div>
+              <div className="text-2xl font-bold">{formatCurrency(mockStats.finance.expenses)}</div>
               <div className="flex items-center gap-1 text-xs">
                 <TrendingUp className="h-3 w-3 text-green-500" />
                 <span className="text-green-500">+{mockStats.finance.trend}{t('units.percent')}</span>
@@ -196,15 +198,15 @@ export default function DashboardPage() {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{mockStats.finance.balance} {t('units.eur')}</div>
+              <div className="text-2xl font-bold">{formatCurrency(mockStats.finance.balance)}</div>
               <div className="flex items-center gap-2 text-xs mt-2">
                 <div className="flex items-center gap-1">
                   <TrendingUp className="h-3 w-3 text-green-500" />
-                  <span className="text-green-500">+{mockStats.finance.income}</span>
+                  <span className="text-green-500">+{formatCurrency(mockStats.finance.income)}</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <TrendingDown className="h-3 w-3 text-red-500" />
-                  <span className="text-red-500">-{mockStats.finance.expenses}</span>
+                  <span className="text-red-500">-{formatCurrency(mockStats.finance.expenses)}</span>
                 </div>
               </div>
             </CardContent>

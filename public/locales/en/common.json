@@ -313,7 +313,8 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System",
-    "highContrast": "High Contrast"
+    "highContrast": "High Contrast",
+    "toggle": "Toggle theme"
   },
   "language": {
     "select": "Select Language",
