@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { useToast } from '@/ui/components/toast';
 import { notificationService } from '@/core/notifications';
 import type { Notification } from '@/core/notifications';
 
