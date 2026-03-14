@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/
 import { Input } from '@/ui/components/input';
 import { Select } from '@/ui/components/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogDescription } from '@/ui/components/dialog';
-import { Plus, Sparkles, Trash2, Pencil, Calendar, Clock, AlertTriangle } from 'lucide-react';
+import { Plus, Sparkles, Trash2, Pencil, Calendar, Clock, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { Badge } from '@/ui/components/badge';
 
 interface Cosmetic {
@@ -129,7 +129,7 @@ export default function BeautyPage() {
 
   const getCategoryEmoji = (category: Cosmetic['category']) => {
     const emojis = { skincare: '🧴', haircare: '💇', makeup: '💄', fragrance: '🌸', body: '🛁' };
-    return emojis[category] || '✨';
+    return emojis[category];
   };
 
   const getTypeBadge = (type: Routine['type']) => {
@@ -138,7 +138,7 @@ export default function BeautyPage() {
       evening: 'outline',
       weekly: 'outline',
     };
-    const labels = { morning: '☀️ Утро', evening: '🌙 Вечер', weekly: '📅 Неделя' };
+    const labels = { morning: t('beauty.morning'), evening: t('beauty.evening'), weekly: t('beauty.weekly') };
     return <Badge variant={variants[type]}>{labels[type]}</Badge>;
   };
 
@@ -253,7 +253,7 @@ export default function BeautyPage() {
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Истекает</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('beauty.expiringSoon')}</CardTitle>
               <AlertTriangle className="h-4 w-4 text-orange-500" />
             </CardHeader>
             <CardContent>
@@ -272,7 +272,7 @@ export default function BeautyPage() {
                   <div className="flex items-center gap-3">
                     {routine.completedToday ? (
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
-                        <Sparkles className="h-5 w-5 text-green-600" />
+                        <CheckCircle2 className="h-5 w-5 text-green-600" />
                       </div>
                     ) : (
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
@@ -283,7 +283,7 @@ export default function BeautyPage() {
                       <CardTitle>{routine.name}</CardTitle>
                       <div className="flex items-center gap-2">
                         <CardDescription className="text-xs">
-                          {routine.steps.length} {t('beauty.step')}
+                          {routine.steps.length} {t('beauty.steps')}
                         </CardDescription>
                         {getTypeBadge(routine.type)}
                       </div>
@@ -312,7 +312,7 @@ export default function BeautyPage() {
                         {step.name}
                       </span>
                       {step.duration && (
-                        <span className="text-xs text-muted-foreground">{step.duration} мин</span>
+                        <span className="text-xs text-muted-foreground">{step.duration} {t('beauty.minutes')}</span>
                       )}
                     </div>
                   ))}
@@ -345,11 +345,11 @@ export default function BeautyPage() {
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    <Badge variant="outline">{cosmetic.category}</Badge>
+                    <Badge variant="outline">{t(`beauty.${cosmetic.category}`)}</Badge>
                     {daysLeft !== null && daysLeft < 30 && (
                       <p className="text-xs text-orange-500 flex items-center gap-1">
                         <AlertTriangle className="h-3 w-3" />
-                        {daysLeft} дн. до истечения
+                        {daysLeft} {t('beauty.daysLeft')}
                       </p>
                     )}
                     {cosmetic.notes && (

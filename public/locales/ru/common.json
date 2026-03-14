@@ -295,7 +295,14 @@
     "evening": "Вечер",
     "weekly": "Еженедельно",
     "step": "Шаг",
-    "completed": "Выполнено"
+    "completed": "Выполнено",
+    "skincare": "Уход за кожей",
+    "haircare": "Уход за волосами",
+    "makeup": "Макияж",
+    "fragrance": "Парфюм",
+    "body": "Тело",
+    "expiringSoon": "Истекает",
+    "daysLeft": "дн. до истечения"
   },
   "theme": {
     "light": "Светлая",
