@@ -323,5 +323,21 @@
     "placeholder": "Search across all modules...",
     "noResults": "No results found",
     "typeHint": "Type to search across all modules"
+  },
+  "settings": {
+    "description": "Customize the app to your preferences",
+    "appearance": "Appearance",
+    "appearanceDescription": "Choose your preferred theme",
+    "language": "Language",
+    "languageDescription": "Select your interface language",
+    "calendar": "Calendar",
+    "calendarDescription": "Configure calendar settings",
+    "weekStart": "First day of week",
+    "monday": "Monday",
+    "sunday": "Sunday",
+    "saturday": "Saturday",
+    "data": "Data",
+    "dataDescription": "Manage app data",
+    "clearData": "Clear all data"
   }
 }

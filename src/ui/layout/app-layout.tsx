@@ -37,6 +37,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     { name: t('nav.goals'), href: '/goals', icon: Target },
     { name: t('nav.mind'), href: '/mind', icon: Brain },
     { name: t('nav.beauty'), href: '/beauty', icon: Sparkles },
+    { name: t('nav.settings'), href: '/settings', icon: Settings },
   ];
 
   if (!ready) {

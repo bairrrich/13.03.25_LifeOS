@@ -347,5 +347,21 @@
     "placeholder": "Поиск по всем модулям...",
     "noResults": "Ничего не найдено",
     "typeHint": "Введите запрос для поиска по всем модулям"
+  },
+  "settings": {
+    "description": "Настройте приложение под себя",
+    "appearance": "Внешний вид",
+    "appearanceDescription": "Настройте тему оформления",
+    "language": "Язык",
+    "languageDescription": "Выберите язык интерфейса",
+    "calendar": "Календарь",
+    "calendarDescription": "Настройте параметры календаря",
+    "weekStart": "Первый день недели",
+    "monday": "Понедельник",
+    "sunday": "Воскресенье",
+    "saturday": "Суббота",
+    "data": "Данные",
+    "dataDescription": "Управление данными приложения",
+    "clearData": "Очистить все данные"
   }
 }
