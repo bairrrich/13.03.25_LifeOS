@@ -361,6 +361,8 @@
     "languageDescription": "Выберите язык интерфейса",
     "currency": "Валюта",
     "currencyDescription": "Выберите валюту по умолчанию",
+    "notifications": "Уведомления",
+    "notificationsDescription": "Включите или выключите уведомления",
     "calendar": "Календарь",
     "calendarDescription": "Настройте параметры календаря",
     "weekStart": "Первый день недели",

@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/
 import { Select } from '@/ui/components/select';
 import { Label } from '@/ui/components/label';
 import { Separator } from '@/ui/components/separator';
-import { Moon, Sun, Monitor, Globe, Calendar, Check, ChevronRight } from 'lucide-react';
+import { Moon, Sun, Monitor, Globe, Calendar, Check, Bell } from 'lucide-react';
 import { cn } from '@/shared/lib/cn';
 
 const themes = [
@@ -44,6 +44,7 @@ export default function SettingsPage() {
   const [selectedLanguage, setSelectedLanguage] = React.useState(locale);
   const [weekStartDay, setWeekStartDay] = React.useState('monday');
   const [selectedCurrency, setSelectedCurrency] = React.useState('EUR');
+  const [notificationsEnabled, setNotificationsEnabled] = React.useState(true);
 
   // Синхронизация с текущим языком
   React.useEffect(() => {
@@ -55,6 +56,14 @@ export default function SettingsPage() {
     const stored = typeof window !== 'undefined' ? localStorage.getItem('lifeos-currency') : null;
     if (stored) {
       setSelectedCurrency(stored);
+    }
+  }, []);
+
+  // Загрузка настроек уведомлений
+  React.useEffect(() => {
+    const stored = typeof window !== 'undefined' ? localStorage.getItem('lifeos-notifications') : null;
+    if (stored !== null) {
+      setNotificationsEnabled(stored === 'true');
     }
   }, []);
 
@@ -72,6 +81,14 @@ export default function SettingsPage() {
     setSelectedCurrency(newCurrency);
     if (typeof window !== 'undefined') {
       localStorage.setItem('lifeos-currency', newCurrency);
+    }
+  };
+
+  const handleNotificationToggle = () => {
+    const newValue = !notificationsEnabled;
+    setNotificationsEnabled(newValue);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('lifeos-notifications', String(newValue));
     }
   };
 
@@ -183,6 +200,26 @@ export default function SettingsPage() {
                 </Button>
               ))}
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Notifications */}
+        <Card>
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <Bell className="h-5 w-5" />
+              <CardTitle>{t('settings.notifications')}</CardTitle>
+            </div>
+            <CardDescription>{t('settings.notificationsDescription')}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button
+              variant={notificationsEnabled ? 'default' : 'outline'}
+              onClick={handleNotificationToggle}
+              className="w-full"
+            >
+              {notificationsEnabled ? '🔔 Включены' : '🔕 Выключены'}
+            </Button>
           </CardContent>
         </Card>
 
