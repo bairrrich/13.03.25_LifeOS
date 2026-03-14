@@ -6,9 +6,8 @@ import { useTranslation } from '@/shared/lib/use-translation';
 import { Button } from '@/ui/components/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/components/card';
 import { Input } from '@/ui/components/input';
-import { Select } from '@/ui/components/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogDescription } from '@/ui/components/dialog';
-import { Plus, Dumbbell, Trash2, Pencil, Calendar, Flame } from 'lucide-react';
+import { Plus, Dumbbell, Trash2, Pencil, Calendar, Flame, Award } from 'lucide-react';
 import { Badge } from '@/ui/components/badge';
 
 interface Workout {
@@ -30,13 +29,6 @@ interface SetData {
   weight: number;
 }
 
-const mockExercises = [
-  { id: '1', name: 'Жим лёжа', muscleGroup: 'chest' },
-  { id: '2', name: 'Приседания', muscleGroup: 'legs' },
-  { id: '3', name: 'Становая тяга', muscleGroup: 'back' },
-  { id: '4', name: 'Подтягивания', muscleGroup: 'back' },
-];
-
 const mockWorkouts: Workout[] = [
   {
     id: '1',
@@ -48,6 +40,24 @@ const mockWorkouts: Workout[] = [
         exerciseId: '1',
         name: 'Жим лёжа',
         sets: [{ reps: 10, weight: 80 }, { reps: 8, weight: 85 }, { reps: 6, weight: 90 }],
+      },
+      {
+        exerciseId: '2',
+        name: 'Отжимания на брусьях',
+        sets: [{ reps: 12, weight: 0 }, { reps: 10, weight: 0 }, { reps: 8, weight: 0 }],
+      },
+    ],
+  },
+  {
+    id: '2',
+    name: 'Спина + Бицепс',
+    date: Date.now() - 172800000,
+    duration: 55,
+    exercises: [
+      {
+        exerciseId: '3',
+        name: 'Становая тяга',
+        sets: [{ reps: 5, weight: 100 }, { reps: 5, weight: 110 }, { reps: 5, weight: 120 }],
       },
     ],
   },
@@ -64,11 +74,11 @@ export default function WorkoutsPage() {
       return eSum + e.sets.reduce((sSum, s) => sSum + (s.reps * s.weight), 0);
     }, 0);
   }, 0);
+  const totalHours = workouts.reduce((sum, w) => sum + (w.duration || 0), 0);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleAddWorkout = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
     const newWorkout: Workout = {
       id: Date.now().toString(),
       name: formData.get('name') as string,
@@ -76,7 +86,6 @@ export default function WorkoutsPage() {
       duration: Number(formData.get('duration')),
       exercises: [],
     };
-
     setWorkouts([newWorkout, ...workouts]);
     setIsDialogOpen(false);
   };
@@ -89,6 +98,7 @@ export default function WorkoutsPage() {
     return new Date(timestamp).toLocaleDateString('ru-RU', {
       day: 'numeric',
       month: 'short',
+      year: 'numeric',
     });
   };
 
@@ -113,7 +123,7 @@ export default function WorkoutsPage() {
                 <DialogTitle>{t('workouts.addWorkout')}</DialogTitle>
                 <DialogDescription>{t('workouts.addWorkout')}</DialogDescription>
               </DialogHeader>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleAddWorkout} className="space-y-4">
                 <Input name="name" label={t('workouts.workoutName')} required />
                 <Input name="duration" type="number" label={t('workouts.duration')} />
                 <DialogFooter>
@@ -144,12 +154,12 @@ export default function WorkoutsPage() {
               <Calendar className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{workouts.reduce((sum, w) => sum + (w.duration || 0), 0)} мин</div>
+              <div className="text-2xl font-bold">{totalHours} {t('workouts.hours')}</div>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Объём</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('workouts.volume')}</CardTitle>
               <Flame className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -174,7 +184,7 @@ export default function WorkoutsPage() {
                     <div>
                       <CardTitle>{workout.name}</CardTitle>
                       <CardDescription className="text-xs">
-                        {formatDate(workout.date)} • {workout.duration || 0} мин
+                        {formatDate(workout.date)} • {workout.duration || 0} {t('workouts.minutes')}
                       </CardDescription>
                     </div>
                     <div className="flex gap-2">
@@ -186,24 +196,26 @@ export default function WorkoutsPage() {
                 </CardHeader>
                 <CardContent>
                   {workout.exercises.length === 0 ? (
-                    <p className="text-sm text-muted-foreground">Нет упражнений</p>
+                    <p className="text-sm text-muted-foreground">{t('common.noData')}</p>
                   ) : (
                     <div className="space-y-3">
                       {workout.exercises.map((exercise, exIndex) => (
                         <div key={exIndex} className="space-y-2">
                           <div className="flex items-center justify-between">
                             <span className="font-medium">{exercise.name}</span>
-                            <Badge variant="outline">{exercise.sets.length} подходов</Badge>
+                            <Badge variant="outline">{exercise.sets.length} {t('workouts.sets')}</Badge>
                           </div>
-                          <div className="grid grid-cols-3 gap-2 text-xs">
-                            <div className="text-muted-foreground">Подход</div>
-                            <div className="text-muted-foreground">Вес</div>
-                            <div className="text-muted-foreground">Повторы</div>
+                          <div className="grid grid-cols-4 gap-2 text-xs">
+                            <div className="text-muted-foreground">{t('workouts.set')}</div>
+                            <div className="text-muted-foreground">{t('workouts.weight')}</div>
+                            <div className="text-muted-foreground">{t('workouts.reps')}</div>
+                            <div></div>
                             {exercise.sets.map((set, setIndex) => (
                               <React.Fragment key={setIndex}>
                                 <div>{setIndex + 1}</div>
                                 <div>{set.weight} кг</div>
                                 <div>{set.reps}</div>
+                                <div></div>
                               </React.Fragment>
                             ))}
                           </div>
@@ -216,28 +228,6 @@ export default function WorkoutsPage() {
             ))
           )}
         </div>
-
-        {/* Exercises Reference */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">{t('workouts.exercises')}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid gap-2 md:grid-cols-2">
-              {mockExercises.map((exercise) => (
-                <div key={exercise.id} className="flex items-center justify-between p-3 rounded-lg border">
-                  <div>
-                    <p className="font-medium">{exercise.name}</p>
-                    <p className="text-xs text-muted-foreground capitalize">{exercise.muscleGroup}</p>
-                  </div>
-                  <Button variant="ghost" size="sm">
-                    <Plus className="h-4 w-4" />
-                  </Button>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </AppLayout>
   );
