@@ -147,7 +147,7 @@
     "budgetsOver": "бюджет(а) превышено"
   },
   "habits": {
-    "streak": "Серия",
+    "streak": "дней серия",
     "completed": "Выполнено",
     "missed": "Пропущено",
     "today": "Сегодня",
@@ -162,7 +162,9 @@
     "bestStreak": "Лучшая серия",
     "completionRate": "Процент выполнения",
     "markComplete": "Отметить выполненным",
-    "markMissed": "Отметить пропущенным"
+    "markMissed": "Отметить пропущенным",
+    "weeklyProgress": "Прогресс за неделю",
+    "progress": "Прогресс"
   },
   "nutrition": {
     "foods": "Продукты",
