@@ -7,7 +7,7 @@ import { Button } from '@/ui/components/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/ui/components/card';
 import { Input } from '@/ui/components/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogDescription } from '@/ui/components/dialog';
-import { Plus, Moon, Heart, Scale, Pill, Trash2, Activity } from 'lucide-react';
+import { Plus, Moon, Scale, Pill, Activity, Trash2 } from 'lucide-react';
 import { Badge } from '@/ui/components/badge';
 
 interface SleepLog {
@@ -86,7 +86,7 @@ export default function HealthPage() {
 
   const getQualityEmoji = (quality: SleepLog['quality']) => {
     const emojis = { poor: '😴', fair: '😐', good: '😊', excellent: '🌟' };
-    return emojis[quality] || '😐';
+    return emojis[quality];
   };
 
   return (
@@ -114,10 +114,10 @@ export default function HealthPage() {
                 <form onSubmit={handleAddSleep} className="space-y-4">
                   <Input name="hours" type="number" step="0.5" label={`${t('health.duration')} (часы)`} required />
                   <select name="quality" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
-                    <option value="poor">😴 Плохое</option>
-                    <option value="fair">😐 Нормальное</option>
-                    <option value="good">😊 Хорошее</option>
-                    <option value="excellent">🌟 Отличное</option>
+                    <option value="poor">😴 {t('health.poor')}</option>
+                    <option value="fair">😐 {t('health.fair')}</option>
+                    <option value="good">😊 {t('health.good')}</option>
+                    <option value="excellent">🌟 {t('health.excellent')}</option>
                   </select>
                   <DialogFooter>
                     <Button type="button" variant="ghost" onClick={() => setIsSleepDialogOpen(false)}>
@@ -164,7 +164,7 @@ export default function HealthPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{avgSleep} ч</div>
-              <p className="text-xs text-muted-foreground">За неделю</p>
+              <p className="text-xs text-muted-foreground">{t('health.avgWeek')}</p>
             </CardContent>
           </Card>
           <Card>
@@ -186,7 +186,7 @@ export default function HealthPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{weightLogs[0]?.bodyFat || '-'}%</div>
-              <p className="text-xs text-muted-foreground">Последнее измерение</p>
+              <p className="text-xs text-muted-foreground">{t('health.lastMeasurement')}</p>
             </CardContent>
           </Card>
         </div>
@@ -208,11 +208,11 @@ export default function HealthPage() {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{getQualityEmoji(log.quality)}</span>
                     <div>
-                      <p className="font-medium">{log.hours} часов</p>
+                      <p className="font-medium">{log.hours} ч</p>
                       <p className="text-xs text-muted-foreground">{formatDate(log.date)}</p>
                     </div>
                   </div>
-                  <Badge>{log.quality === 'excellent' ? 'Отлично' : log.quality === 'good' ? 'Хорошо' : 'Нормально'}</Badge>
+                  <Badge>{t(`health.${log.quality}`)}</Badge>
                 </div>
               ))}
             </div>

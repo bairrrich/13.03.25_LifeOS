@@ -230,7 +230,13 @@
     "bloodPressure": "Давление",
     "temperature": "Температура",
     "taken": "Принято",
-    "skipped": "Пропущено"
+    "skipped": "Пропущено",
+    "poor": "Плохое",
+    "fair": "Нормальное",
+    "good": "Хорошее",
+    "excellent": "Отличное",
+    "avgWeek": "За неделю",
+    "lastMeasurement": "Последнее измерение"
   },
   "goals": {
     "goals": "Цели",
