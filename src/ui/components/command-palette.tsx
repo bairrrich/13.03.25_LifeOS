@@ -76,7 +76,7 @@ export function CommandPalette() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
   const { setTheme } = useTheme();
-  const { changeLocale } = useTranslation();
+  const { t, changeLocale } = useTranslation();
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -110,19 +110,19 @@ export function CommandPalette() {
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder="Поиск команд или страниц..." />
+      <CommandInput placeholder={t('commandPalette.search')} />
       <CommandList>
-        <CommandEmpty>Ничего не найдено.</CommandEmpty>
+        <CommandEmpty>{t('commandPalette.noResults')}</CommandEmpty>
         {navigationItems.map((group) => (
           <React.Fragment key={group.group}>
-            <CommandGroup heading={group.group === 'navigation' ? 'Навигация' : group.group === 'actions' ? 'Действия' : 'Настройки'}>
+            <CommandGroup heading={group.group === 'navigation' ? t('commandPalette.navigation') : group.group === 'actions' ? t('commandPalette.actions') : t('commandPalette.settings')}>
               {group.items.map((item) => (
                 <CommandItem
                   key={item.label}
                   onSelect={() => handleSelect('action' in item ? item.action || '' : '', 'href' in item ? item.href : undefined)}
                 >
                   <item.icon className="mr-2 h-4 w-4" />
-                  <span>{item.label}</span>
+                  <span>{t(item.label)}</span>
                 </CommandItem>
               ))}
             </CommandGroup>

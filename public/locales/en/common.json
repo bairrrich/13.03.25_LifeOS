@@ -311,5 +311,17 @@
     "date": "Enter a valid date",
     "futureDate": "Date must be in the future",
     "pastDate": "Date must be in the past"
+  },
+  "commandPalette": {
+    "search": "Search commands or pages...",
+    "noResults": "No results found",
+    "navigation": "Navigation",
+    "actions": "Actions",
+    "settings": "Settings"
+  },
+  "globalSearch": {
+    "placeholder": "Search across all modules...",
+    "noResults": "No results found",
+    "typeHint": "Type to search across all modules"
   }
 }
