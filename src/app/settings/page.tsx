@@ -29,6 +29,13 @@ const weekStartDays = [
   { id: 'saturday', label: 'settings.saturday' },
 ];
 
+const currencies = [
+  { id: 'EUR', label: 'EUR - Euro', symbol: '€' },
+  { id: 'USD', label: 'USD - US Dollar', symbol: '$' },
+  { id: 'GBP', label: 'GBP - British Pound', symbol: '£' },
+  { id: 'RUB', label: 'RUB - Russian Ruble', symbol: '₽' },
+];
+
 export default function SettingsPage() {
   const { t, locale, changeLocale } = useTranslation();
   const { theme, setTheme } = useTheme();
@@ -36,11 +43,20 @@ export default function SettingsPage() {
   const [selectedTheme, setSelectedTheme] = React.useState(theme || 'system');
   const [selectedLanguage, setSelectedLanguage] = React.useState('en');
   const [weekStartDay, setWeekStartDay] = React.useState('monday');
+  const [selectedCurrency, setSelectedCurrency] = React.useState('EUR');
 
   // Синхронизация с текущим языком
   React.useEffect(() => {
     setSelectedLanguage(locale || 'en');
   }, [locale]);
+
+  // Загрузка сохранённой валюты
+  React.useEffect(() => {
+    const stored = typeof window !== 'undefined' ? localStorage.getItem('lifeos-currency') : null;
+    if (stored) {
+      setSelectedCurrency(stored);
+    }
+  }, []);
 
   const handleThemeChange = (newTheme: string) => {
     setSelectedTheme(newTheme);
@@ -50,6 +66,13 @@ export default function SettingsPage() {
   const handleLanguageChange = async (newLocale: 'ru' | 'en') => {
     setSelectedLanguage(newLocale);
     await changeLocale(newLocale);
+  };
+
+  const handleCurrencyChange = (newCurrency: string) => {
+    setSelectedCurrency(newCurrency);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('lifeos-currency', newCurrency);
+    }
   };
 
   return (
@@ -123,6 +146,40 @@ export default function SettingsPage() {
                     )}
                   </div>
                   <span className="text-xs text-muted-foreground">{lang.label}</span>
+                </Button>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Currency */}
+        <Card>
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <Globe className="h-5 w-5" />
+              <CardTitle>{t('settings.currency')}</CardTitle>
+            </div>
+            <CardDescription>{t('settings.currencyDescription')}</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-2 gap-2">
+              {currencies.map((currency) => (
+                <Button
+                  key={currency.id}
+                  variant={selectedCurrency === currency.id ? 'default' : 'outline'}
+                  className={cn(
+                    'flex flex-col items-start gap-1 h-auto py-4 px-4',
+                    selectedCurrency === currency.id && 'border-primary'
+                  )}
+                  onClick={() => handleCurrencyChange(currency.id)}
+                >
+                  <div className="flex items-center justify-between w-full">
+                    <span className="font-medium">{currency.symbol}</span>
+                    {selectedCurrency === currency.id && (
+                      <Check className="h-4 w-4" />
+                    )}
+                  </div>
+                  <span className="text-xs text-muted-foreground">{currency.label}</span>
                 </Button>
               ))}
             </div>

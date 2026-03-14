@@ -358,6 +358,8 @@
     "appearanceDescription": "Настройте тему оформления",
     "language": "Язык",
     "languageDescription": "Выберите язык интерфейса",
+    "currency": "Валюта",
+    "currencyDescription": "Выберите валюту по умолчанию",
     "calendar": "Календарь",
     "calendarDescription": "Настройте параметры календаря",
     "weekStart": "Первый день недели",

@@ -4,6 +4,7 @@ import * as React from 'react';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/ui/components/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from '@/shared/lib/use-translation';
 
 export interface PaginationProps {
   currentPage: number;
@@ -18,6 +19,7 @@ export function Pagination({
   onPageChange,
   className,
 }: PaginationProps) {
+  const { t } = useTranslation();
   const pages = React.useMemo(() => {
     const result: (number | 'ellipsis')[] = [];
     const showStart = currentPage <= 3;
@@ -64,7 +66,7 @@ export function Pagination({
         size="icon"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        aria-label="Previous page"
+        aria-label={t('common.previous')}
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
@@ -96,7 +98,7 @@ export function Pagination({
         size="icon"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        aria-label="Next page"
+        aria-label={t('common.next')}
       >
         <ChevronRight className="h-4 w-4" />
       </Button>
